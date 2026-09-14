@@ -78,7 +78,7 @@ jobs:
       - name: Prepare tests
         working-directory: spec/dummy
         run: |
-          bundle exec rails db:setup RAILS_ENV=test
+          bundle exec rails db:test:prepare RAILS_ENV=test
 
       - name: Run tests
         run: |
