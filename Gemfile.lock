@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:KeyHarbour/KeyHarbourCore.git
+  remote: https://github.com/KeyHarbour/KeyHarbourCore.git
   revision: 752ef20bc5f6b67b1f4577ddff6141d51fd90498
   specs:
     key_harbour_core (1.0.0)
