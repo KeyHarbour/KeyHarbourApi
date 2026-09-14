@@ -7,18 +7,14 @@ How to use my plugin.
 ## Installation
 Add this line to your application's Gemfile:
 
+
 ```ruby
-gem "key_harbour_api"
+gem "key_harbour_api", git: "git@github.com:KeyHarbour/KeyHarbourApi.git"
 ```
 
 And then execute:
 ```bash
-$ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install key_harbour_api
+$ bundle install
 ```
 
 ## Contributing
