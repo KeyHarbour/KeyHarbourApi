@@ -1,0 +1,66 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  primary:
+    <<: *default
+    database: <%= ENV.fetch("DATABASE_NAME") %>_development
+  logs:
+    <<: *default
+    database: <%= ENV.fetch("DATABASE_NAME") %>_logs_development
+    migrations_paths: ../../db/logs_migrate
+  queue:
+    <<: *default
+    database: <%= ENV.fetch("DATABASE_NAME") %>_queue_development
+    migrations_paths: db/queue_migrate
+
+test:
+  primary:
+    <<: *default
+    url: <%= ENV['DATABASE_URL'] %>
+    database: <%= ENV.fetch("DATABASE_NAME") %>_test
+  logs:
+    <<: *default
+    url: <%= ENV['DATABASE_URL'] %>
+    database: <%= ENV.fetch("DATABASE_NAME") %>_logs_test
+    migrations_paths: ../../db/logs_migrate
+  queue:
+    <<: *default
+    url: <%= ENV['DATABASE_URL'] %>
+    database: <%= ENV.fetch("DATABASE_NAME") %>_queue_test
+    migrations_paths: db/queue_migrate
+
+production:
+  primary:
+    <<: *default
+    database: <%= ENV.fetch("DATABASE_NAME") %>_production
+    username: <%= ENV.fetch("POSTGRES_USER", "keyharbour") %>
+    password: <%= ENV["POSTGRES_PASSWORD"] %>
+    host: <%= ENV.fetch("DB_HOST", "key_harbour-db") %>
+    port: <%= ENV.fetch("POSTGRES_PORT", 5432) %>
+  cache:
+    <<: *default
+    database: <%= ENV.fetch("DATABASE_NAME") %>_cache_production
+    username: <%= ENV.fetch("POSTGRES_USER", "keyharbour") %>
+    password: <%= ENV["POSTGRES_PASSWORD"] %>
+    host: <%= ENV.fetch("DB_HOST", "key_harbour-db") %>
+    port: <%= ENV.fetch("POSTGRES_PORT", 5432) %>
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *default
+    database: <%= ENV.fetch("DATABASE_NAME") %>_queue_production
+    username: <%= ENV.fetch("POSTGRES_USER", "keyharbour") %>
+    password: <%= ENV["POSTGRES_PASSWORD"] %>
+    host: <%= ENV.fetch("DB_HOST", "key_harbour-db") %>
+    port: <%= ENV.fetch("POSTGRES_PORT", 5432) %>
+    migrations_paths: db/queue_migrate
+  logs:
+    <<: *default
+    database: <%= ENV.fetch("DATABASE_NAME") %>_logs_production
+    username: <%= ENV.fetch("POSTGRES_USER", "keyharbour") %>
+    password: <%= ENV["POSTGRES_PASSWORD"] %>
+    host: <%= ENV.fetch("DB_HOST", "key_harbour-db") %>
+    port: <%= ENV.fetch("POSTGRES_PORT", 5432) %>
+    migrations_paths: db/logs_migrate

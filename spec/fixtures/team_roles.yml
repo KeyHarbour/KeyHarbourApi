@@ -1,0 +1,56 @@
+# IT team — admin on IT org, viewer on the others
+simplex_it_team_on_it_org:
+  team: simplex_it_team
+  resource: simplex_it
+  resource_type: "Organization"
+  role: 2
+simplex_it_team_on_ops_org:
+  team: simplex_it_team
+  resource: simplex_ops
+  resource_type: "Organization"
+  role: 0
+simplex_it_team_on_corp_org:
+  team: simplex_it_team
+  resource: simplex_corporate
+  resource_type: "Organization"
+  role: 0
+
+# IT team — editor on specific cross-org projects (SSO integrations)
+simplex_it_team_on_servicenow:
+  team: simplex_it_team
+  resource: simplex_servicenow
+  resource_type: "Project"
+  role: 1
+simplex_it_team_on_salesforce:
+  team: simplex_it_team
+  resource: simplex_salesforce
+  resource_type: "Project"
+  role: 1
+
+# Operations team — admin on Ops org
+simplex_ops_team_on_ops_org:
+  team: simplex_ops_team
+  resource: simplex_ops
+  resource_type: "Organization"
+  role: 2
+
+# Operations team — viewer on IT org (needs Okta access)
+simplex_ops_team_on_it_org:
+  team: simplex_ops_team
+  resource: simplex_it
+  resource_type: "Organization"
+  role: 0
+
+# Finance team — admin on Corporate org
+simplex_finance_team_on_corp_org:
+  team: simplex_finance_team
+  resource: simplex_corporate
+  resource_type: "Organization"
+  role: 2
+
+# Finance team — viewer on Ops org (cost allocation for equipment)
+simplex_finance_team_on_ops_org:
+  team: simplex_finance_team
+  resource: simplex_ops
+  resource_type: "Organization"
+  role: 0

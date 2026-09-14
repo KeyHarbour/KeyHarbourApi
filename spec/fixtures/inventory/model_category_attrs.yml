@@ -1,0 +1,20 @@
+imc_non_billable_attr:
+  name: "Name"
+  attr_name: "name"
+  model_category: imc_non_billable
+  active: true
+imc_azurerm_subnet_attr_name:
+  name: "Name"
+  attr_name: "name"
+  model_category: imc_azurerm_subnet
+  active: true
+imc_azurerm_subnet_attr_resource_group_name:
+  name: "resource_group_name"
+  attr_name: "resource_group_name"
+  model_category: imc_azurerm_subnet
+  active: false
+imc_azurerm_postgresql_flexible_server_attr:
+  name: "Name"
+  attr_name: "name"
+  model_category: imc_azurerm_postgresql_flexible_server
+  active: true

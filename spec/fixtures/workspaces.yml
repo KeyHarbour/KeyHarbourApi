@@ -1,0 +1,66 @@
+licence_user:
+  name: "Licence Users"
+  status: 0
+  uuid: 64dfd55b-ad5a-47d7-9a94-ea3690ccadbf
+  description: "Users with a licence to use the system"
+  project: licence
+licence_application:
+  name: "Licence Applications"
+  status: 0
+  uuid: 64dfd55b-ad5a-47d7-9a94-aa3690ccadbf
+  description: "Applications with a licence to use the system"
+  project: licence
+licence_assignation:
+  name: "Licence Assignation"
+  status: 0
+  uuid: 64dfd55b-ad5a-47d7-9a94-ba3690ccadbf
+  description: "Assignation with a licence to use the system"
+  project: licence
+infra_fivetran:
+  name: "Infra Fivetran"
+  status: 0
+  uuid: 64dfd55b-ad5a-47d7-9a94-ca3690ccadbf
+  description: "Fivetran infrastructure"
+  project: fivetran
+app_fivetran:
+  name: "App Fivetran"
+  status: 0
+  uuid: 64dfd55b-ad5a-47d7-9a94-da3690ccadbf
+  description: "Fivetran application"
+  project: fivetran
+app_montecarlo:
+  name: "App MonteCarlo"
+  status: 0
+  uuid: 64dfd55b-ad5a-47d7-9a94-db3690ccadbf
+  description: "MonteCarlo application"
+  project: montecarlo
+app_security:
+  name: "Security check"
+  status: 0
+  uuid: 64dfd55b-ad5a-47d7-9a94-dc3690ccadbf
+  description: "Security check"
+  project: security
+simplex_servicenow:
+  name: "Service Now"
+  status: 0
+  uuid: 64dfd55b-2222-47d7-9a94-dc3690ccadbf
+  description: "Infrastructure"
+  project: simplex_servicenow
+infra_nexus:
+  name: "Infra Nexus"
+  status: 0
+  uuid: 64dfd55b-0000-47d7-9a94-dc3690ccadbf
+  description: "Infrastructure"
+  project: simplex_nexus
+config_nexus:
+  name: "Config Nexus"
+  status: 0
+  uuid: 64dfd55b-1111-47d7-9a94-dc3690ccadbf
+  description: "Software configuration of Nexus"
+  project: simplex_nexus
+simplex_ops_wks:
+  name: "Ops key/Value"
+  status: 0
+  uuid: 64dfd55b-3333-47d7-9a94-dc3690ccadbf
+  description: "Ops KeyValue"
+  project: simplex_ops_prj

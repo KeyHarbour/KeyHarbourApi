@@ -1,0 +1,72 @@
+kh_chief_executive:
+  account: kh
+  user: chief_executive
+  role: owner
+kh_chief_technology:
+  account: kh
+  user: chief_technology
+  role: user
+kh_lead_engineer_recommendation:
+  account: kh
+  user: lead_engineer_recommendation
+  role: inactive
+kh_senior_dev_recommendation:
+  account: kh
+  user: senior_dev_recommendation
+  role: user
+kh_product_manager_recommendation:
+  account: kh
+  user: product_manager_recommendation
+  role: admin
+kh_infrastructure_lead:
+  account: kh
+  user: infrastructure_lead
+  role: user
+kh_devops_engineer_prod:
+  account: kh
+  user: devops_engineer_prod
+  role: viewer
+kh_site_reliability_engineer:
+  account: kh
+  user: site_reliability_engineer
+  role: user
+kh_security_officer:
+  account: kh
+  user: security_officer
+  role: viewer
+kh_dcybersecurity_analyst:
+  account: kh
+  user: cybersecurity_analyst
+  role: user
+kh_data_scientist_core:
+  account: kh
+  user: data_scientist_core
+  role: admin
+kh_data_engineer_pipeline:
+  account: kh
+  user: data_engineer_pipeline
+  role: user
+kh_qa_automation_lead:
+  account: kh
+  user: qa_automation_lead
+  role: admin
+building_external_auditor:
+  account: building
+  user: external_auditor
+  role: owner
+building_customer_success_lead:
+  account: building
+  user: customer_success_lead
+  role: user
+building_support_agent_tier3:
+  account: building
+  user: support_agent_tier3
+  role: inactive
+building_technical_writer:
+  account: building
+  user: technical_writer  
+  role: admin
+simplex_chief_executive:
+  account: simplex
+  user: simplex_it_director
+  role: owner  

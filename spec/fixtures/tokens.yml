@@ -1,0 +1,72 @@
+data_org:
+  environment: production10
+  expiration: <%= Time.current.advance(days: 7).to_fs(:db) %>
+  name: "Data Organization token"
+  scopable_id: <%= ActiveRecord::FixtureSet.identify(:data) %>
+  scopable_type: "Organization"
+data_fivetran_project:
+  environment: production10
+  expiration: <%= Time.current.advance(days: 15).to_fs(:db) %>
+  name: "Data Project FiveTran token"
+  scopable_id: <%= ActiveRecord::FixtureSet.identify(:fivetran) %>
+  scopable_type: "Project"  
+data_fivetran_app_fivetran_ws:
+  environment: production10
+  expiration: <%= Time.current.advance(days: 9).to_fs(:db) %>
+  name: "Data Project FiveTran app_fivetran token"
+  scopable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  scopable_type: "Workspace"  
+data_fivetran_app_fivetran_ws_expired:
+  environment: production10
+  expiration: <%= Time.current.advance(days: -9).to_fs(:db) %>
+  name: "Expired Data Project FiveTran app_fivetran token"
+  scopable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  scopable_type: "Workspace" 
+infra_org:
+  environment: production
+  expiration: <%= Time.current.advance(days: 7).to_fs(:db) %>
+  name: "Data Organization token"
+  scopable_id: <%= ActiveRecord::FixtureSet.identify(:infra) %>
+  scopable_type: "Organization"
+infra_nexus_prd:
+  environment: production_simplex
+  expiration: <%= Time.current.advance(days: 7).to_fs(:db) %>
+  name: "Nexus infra token PRD"
+  scopable: infra_nexus
+  scopable_type: "Workspace"
+config_nexus_prd:
+  environment: production_simplex
+  expiration: <%= Time.current.advance(days: 170).to_fs(:db) %>
+  name: "Nexus software config token PRD"
+  scopable: config_nexus
+  scopable_type: "Workspace"
+infra_nexus_sbx:
+  environment: sandbox_simplex
+  expiration: <%= Time.current.advance(days: 7).to_fs(:db) %>
+  name: "Nexus infra token SBX"
+  scopable: infra_nexus
+  scopable_type: "Workspace"
+config_nexus_sbx:
+  environment: sandbox_simplex
+  expiration: <%= Time.current.advance(days: 120).to_fs(:db) %>
+  name: "Nexus software config token SBX"
+  scopable: config_nexus
+  scopable_type: "Workspace"
+infra_nexus_qa:
+  environment: qa_simplex
+  expiration: <%= Time.current.advance(days: 90).to_fs(:db) %>
+  name: "Nexus infra token QA"
+  scopable: infra_nexus
+  scopable_type: "Workspace"
+config_nexus_qa:
+  environment: qa_simplex
+  expiration: <%= Time.current.advance(days: 300).to_fs(:db) %>
+  name: "Nexus software config token QA"
+  scopable: config_nexus
+  scopable_type: "Workspace" 
+all_nexus_sbx:
+  environment: sandbox_simplex
+  expiration: <%= Time.current.advance(days: 120).to_fs(:db) %>
+  name: "All SBX workspace"
+  scopable: nexus
+  scopable_type: "Project"

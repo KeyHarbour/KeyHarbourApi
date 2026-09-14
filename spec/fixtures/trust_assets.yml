@@ -1,0 +1,49 @@
+tas_app_fivetran_user_id:
+  environment: dev10
+  name: "the one"
+  expires_at: <%= Time.current.advance(days: 9).to_fs(:db) %>
+  issuer: Bitbucket
+  format: token
+  consumer: Azdo
+  workspace: app_fivetran
+tas_app_fivetran_token:
+  environment: dev10
+  workspace: app_fivetran  
+  name: tas_app_fivetran_token
+  expires_at: <%= Time.current.advance(days: 19).to_fs(:db) %>
+  issuer: Bitbucket
+  format: token
+  consumer: Azdo
+tas_app_fivetran_password_one_time:
+  environment: dev10
+  workspace: app_fivetran
+  name: tas_app_fivetran_password_one_time
+  expires_at: <%= Time.current.advance(days: 29).to_fs(:db) %>
+  issuer: Bitbucket
+  format: token
+  consumer: Azdo
+tas_app_fivetran_app_id_expiration:
+  environment: dev10
+  workspace: app_fivetran
+  name: tas_app_fivetran_app_id_expiration
+  expires_at: <%= Time.current.advance(days: 109).to_fs(:db) %>
+  issuer: Bitbucket
+  format: token
+  consumer: Azdo
+tas_app_fivetran_ssl:
+  environment: production10
+  workspace: app_fivetran
+  name: tas_app_fivetran_ssl
+  expires_at: <%= Time.current.advance(days: 25).to_fs(:db) %>
+  issuer: Certigo
+  format: tls_certificate
+  consumer: Azdo
+tas_app_fivetran_ssl_reminder:
+  environment: sandbox_simplex
+  workspace: infra_nexus   
+  name: tas_app_fivetran_ssl
+  expires_at: <%= Time.current.advance(days: 365).to_fs(:db) %>
+  issuer: Certigo
+  format: tls_certificate
+  consumer: Azdo
+  reminder_days: 14

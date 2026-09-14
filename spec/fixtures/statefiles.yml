@@ -1,0 +1,48 @@
+sf_app_fivetran_dev1:
+  content: '<%= File.read(File.expand_path("../samples/sample1-0.tfstate", __dir__)) %>'
+  environment: dev10
+  published_at: <%= Time.current.advance(days: -5).to_fs(:db) %>
+  uuid: <%= UniqueNamesGenerator::Generator.new([ :colors, :adjectives, :animals ]).generate %>
+  workspace: app_fivetran
+sf_app_fivetran_dev2:
+  content: '<%= File.read(File.expand_path("../samples/sample1-1.tfstate", __dir__)) %>'
+  environment: dev10
+  published_at: <%= Time.current.advance(days: -2).to_fs(:db) %>
+  uuid: <%= UniqueNamesGenerator::Generator.new([ :colors, :adjectives, :animals ]).generate %>
+  workspace: app_fivetran
+sf_app_fivetran_dev3:
+  content: '<%= File.read(File.expand_path("../samples/sample1-2.tfstate", __dir__)) %>'
+  environment: dev10
+  published_at: <%= Time.current.to_fs(:db) %>
+  uuid: <%= UniqueNamesGenerator::Generator.new([ :colors, :adjectives, :animals ]).generate %>
+  workspace: app_fivetran    
+sf_app_fivetran_prod:
+  content: '<%= File.read(File.expand_path("../samples/sample2.tfstate", __dir__)) %>'
+  environment: production10
+  published_at: <%= Time.current.to_fs(:db) %>
+  uuid: <%= UniqueNamesGenerator::Generator.new([ :colors, :adjectives, :animals ]).generate %>
+  workspace: app_fivetran  
+sf_app_fivetran_sbx:
+  content: '<%= File.read(File.expand_path("../samples/sample3.tfstate", __dir__)) %>'
+  environment: sandbox10
+  published_at: <%= Time.current.to_fs(:db) %>
+  uuid: <%= UniqueNamesGenerator::Generator.new([ :colors, :adjectives, :animals ]).generate %>
+  workspace: app_fivetran   
+infra_nexus_sbx3:
+  content: '<%= File.read(File.expand_path("../samples/sample4.3.tfstate", __dir__)) %>'
+  environment: sandbox_simplex
+  published_at: <%= Time.current.to_fs(:db) %>
+  uuid: <%= UniqueNamesGenerator::Generator.new([ :colors, :adjectives, :animals ]).generate %>
+  workspace: infra_nexus 
+infra_nexus_sbx2:
+  content: '<%= File.read(File.expand_path("../samples/sample4.2.tfstate", __dir__)) %>'
+  environment: sandbox_simplex
+  published_at: <%= Time.current.to_fs(:db) %>
+  uuid: <%= UniqueNamesGenerator::Generator.new([ :colors, :adjectives, :animals ]).generate %>
+  workspace: infra_nexus   
+infra_nexus_sbx1:
+  content: '<%= File.read(File.expand_path("../samples/sample4.1.tfstate", __dir__)) %>'
+  environment: sandbox_simplex
+  published_at: <%= Time.current.to_fs(:db) %>
+  uuid: <%= UniqueNamesGenerator::Generator.new([ :colors, :adjectives, :animals ]).generate %>
+  workspace: infra_nexus       

@@ -1,0 +1,13 @@
+kh:
+  name: "KeyHarbour Inc"
+  billing_contact: "veronik@monexample.com"
+building:
+  name: "Building"
+  billing_contact: "building@monexample.com"
+dinner:
+  name: "Dinner"
+  billing_contact: "dinner@monexample.com"
+  status: 1
+simplex:
+  name: "Simplex Rental Inc."
+  billing_contact: "billing@simplex-rental.com"

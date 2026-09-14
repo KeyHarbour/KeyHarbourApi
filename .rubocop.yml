@@ -1,0 +1,16 @@
+# Omakase Ruby styling for Rails
+inherit_gem: { rubocop-rails-omakase: rubocop.yml }
+
+Style/StringLiterals:
+  Enabled: false
+Layout/TrailingWhitespace:
+  Enabled: false
+Layout/TrailingEmptyLines:
+  Enabled: false
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'spec/**/*'

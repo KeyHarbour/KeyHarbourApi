@@ -1,0 +1,10 @@
+owner:
+  name: Owner
+admin:
+  name: Admin
+user:
+  name: User
+viewer:
+  name: Viewer
+inactive:
+  name: Inactive

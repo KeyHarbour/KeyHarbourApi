@@ -1,0 +1,475 @@
+_fixture:
+  model_class: License::Licensee
+
+# ── Okta licensees ────────────────────────────────────────────────────────────
+lic_okta_mc_lessard:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_okta) %>
+  uuid: "mc.lessard@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_pierre_gagnon:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_okta) %>
+  uuid: "pierre.gagnon@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_f_lapointe:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_okta) %>
+  uuid: "f.lapointe@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_okta_i_tremblay:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_okta) %>
+  uuid: "i.tremblay@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_m_cote:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_okta) %>
+  uuid: "m.cote@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_okta_c_dube:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_okta) %>
+  uuid: "c.dube@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_j_roy:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_okta) %>
+  uuid: "j.roy@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_e_beauchamp:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_okta) %>
+  uuid: "e.beauchamp@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_depot_mtl:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_okta) %>
+  uuid: "ops.montreal@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -7).to_date %>
+  status: 0
+lic_okta_depot_qc:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_okta) %>
+  uuid: "ops.quebec@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -14).to_date %>
+  status: 1
+
+# ── GitHub Enterprise licensees ───────────────────────────────────────────────
+lic_gh_e_beauchamp:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_github) %>
+  uuid: "ebeauchamp-simplex"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_gh_j_roy:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_github) %>
+  uuid: "jroy-simplex"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_gh_mc_lessard:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_github) %>
+  uuid: "mclessard-simplex"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_gh_devops_intern:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_github) %>
+  uuid: "devops-intern-2025"
+  last_access: <%= Time.current.advance(days: -45).to_date %>
+  status: 1
+lic_gh_contractor:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_github) %>
+  uuid: "contractor-api-integration"
+  last_access: <%= Time.current.advance(days: -90).to_date %>
+  status: 2
+
+# ── Samsara — vehicle fleet ───────────────────────────────────────────────────
+lic_sam_truck_mtl_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_samsara_vehicles) %>
+  uuid: "VEH-MTL-001"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sam_truck_mtl_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_samsara_vehicles) %>
+  uuid: "VEH-MTL-002"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sam_truck_qc_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_samsara_vehicles) %>
+  uuid: "VEH-QC-001"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_sam_van_laval_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_samsara_vehicles) %>
+  uuid: "VAN-LAV-001"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sam_decommissioned:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_samsara_vehicles) %>
+  uuid: "VEH-MTL-OLD-047"
+  last_access: <%= Time.current.advance(days: -180).to_date %>
+  status: 2
+# Samsara — equipment assets
+lic_sam_scaffold_a:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_samsara_equipment) %>
+  uuid: "EQP-SCAFFOLD-A001"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_sam_excavator_01:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_samsara_equipment) %>
+  uuid: "EQP-EXCAV-001"
+  last_access: <%= Time.current.advance(days: -5).to_date %>
+  status: 0
+lic_sam_generator_01:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_samsara_equipment) %>
+  uuid: "EQP-GEN-001"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+
+# ── ServiceNow FSM — field technicians ───────────────────────────────────────
+lic_snow_tech_morin:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_servicenow) %>
+  uuid: "alexandre.morin@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_snow_tech_ouellet:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_servicenow) %>
+  uuid: "gabriel.ouellet@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_snow_tech_ross:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_servicenow) %>
+  uuid: "mariepier.ross@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_snow_tech_bergeron:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_servicenow) %>
+  uuid: "samuel.bergeron@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_snow_tech_pelletier:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_servicenow) %>
+  uuid: "jessica.pelletier@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -4).to_date %>
+  status: 0
+lic_snow_tech_inactive:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_servicenow) %>
+  uuid: "ex.employee.2024@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -200).to_date %>
+  status: 1
+
+# ── Salesforce — sales team ───────────────────────────────────────────────────
+lic_sf_c_dube:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_salesforce) %>
+  uuid: "c.dube@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sf_pierre_gagnon:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_salesforce) %>
+  uuid: "pierre.gagnon@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sf_rep_nadeau:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_salesforce) %>
+  uuid: "eric.nadeau@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sf_rep_paquin:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_salesforce) %>
+  uuid: "valerie.paquin@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_sf_rep_thibault:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_salesforce) %>
+  uuid: "christian.thibault@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sf_rep_departed:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_salesforce) %>
+  uuid: "departed.sales.rep@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -120).to_date %>
+  status: 2
+
+# ── Workday HCM — HR and payroll users ───────────────────────────────────────
+lic_wd_i_tremblay:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_workday) %>
+  uuid: "EMP-10001"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_wd_pierre_gagnon:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_workday) %>
+  uuid: "EMP-10002"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_wd_hr_generalist_1:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_workday) %>
+  uuid: "EMP-10045"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_wd_hr_generalist_2:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_workday) %>
+  uuid: "EMP-10046"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_wd_payroll_specialist:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_workday) %>
+  uuid: "EMP-10050"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+
+# ── NetSuite ERP ──────────────────────────────────────────────────────────────
+lic_ns_pierre_gagnon:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_netsuite_fin) %>
+  uuid: "pierre.gagnon@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_ns_controller:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_netsuite_fin) %>
+  uuid: "sophie.cloutier@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_ns_ap_specialist:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_netsuite_fin) %>
+  uuid: "ap.specialist@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_ns_depot_mtl_wms:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_netsuite_wms) %>
+  uuid: "depot.mtl.manager@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_ns_depot_qc_wms:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_netsuite_wms) %>
+  uuid: "depot.qc.manager@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+
+# ── Slack — High utilization (340/350 seats) ─────────────────────────────────
+lic_slack_mc_lessard:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_slack_prod) %>
+  uuid: "mc.lessard@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_c_dube:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_slack_prod) %>
+  uuid: "c.dube@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_pierre_gagnon:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_slack_prod) %>
+  uuid: "pierre.gagnon@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_i_tremblay:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_slack_prod) %>
+  uuid: "i.tremblay@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_m_cote:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_slack_prod) %>
+  uuid: "m.cote@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_f_lapointe:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_slack_prod) %>
+  uuid: "f.lapointe@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_e_beauchamp:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_slack_prod) %>
+  uuid: "e.beauchamp@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_j_roy:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_slack_prod) %>
+  uuid: "j.roy@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+# Sample Slack users showing varied activity and inactive accounts
+lic_slack_user_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_slack_prod) %>
+  uuid: "slack.user001@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_slack_user_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_slack_prod) %>
+  uuid: "slack.user002@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -15).to_date %>
+  status: 0
+lic_slack_user_003:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_slack_prod) %>
+  uuid: "slack.user003@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -60).to_date %>
+  status: 1
+
+# ── Microsoft 365 — Very high utilization (490/500 seats) ────────────────────
+lic_m365_all_org_users:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_m365_prod) %>
+  uuid: "all-users@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_m365_user_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_m365_prod) %>
+  uuid: "m365.user001@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_m365_user_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_m365_prod) %>
+  uuid: "m365.user002@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_m365_user_inactive_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_m365_prod) %>
+  uuid: "m365.inactive001@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -90).to_date %>
+  status: 1
+lic_m365_user_inactive_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_m365_prod) %>
+  uuid: "m365.inactive002@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -120).to_date %>
+  status: 1
+
+# ── Datadog — Overdue renewal, production critical ───────────────────────────
+lic_datadog_prod:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_datadog_prod) %>
+  uuid: "datadog-monitoring@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+
+# ── Figma — Approaching renewal (22 days), 72/85 seats (85% utilization) ───────
+lic_figma_designer_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_figma_prod) %>
+  uuid: "designer.001@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_figma_designer_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_figma_prod) %>
+  uuid: "designer.002@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_figma_designer_003:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_figma_prod) %>
+  uuid: "designer.003@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -15).to_date %>
+  status: 0
+lic_figma_viewer_01:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_figma_prod) %>
+  uuid: "viewer.01@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -45).to_date %>
+  status: 1
+
+# ── 1Password — Very high utilization (195/200 seats), 97.5% capacity ─────────
+lic_1password_admin:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_1password_prod) %>
+  uuid: "emp00001@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_1password_user_100:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_1password_prod) %>
+  uuid: "emp00100@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_1password_user_195:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_1password_prod) %>
+  uuid: "emp00195@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -5).to_date %>
+  status: 0
+
+# ── Notion — Low utilization (3 active users) ─────────────────────────────────
+lic_notion_doc_owner:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_notion_prod) %>
+  uuid: "i.tremblay@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_notion_eng_lead:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_notion_prod) %>
+  uuid: "e.beauchamp@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_notion_product:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_notion_prod) %>
+  uuid: "c.dube@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -5).to_date %>
+  status: 0
+
+# ── Jira Dev — Moderate utilization (9/12 seats) ──────────────────────────────
+lic_jira_dev_engineer_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_jira_dev) %>
+  uuid: "dev.engineer.001@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_jira_dev_engineer_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_jira_dev) %>
+  uuid: "dev.engineer.002@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_jira_dev_engineer_003:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_jira_dev) %>
+  uuid: "dev.engineer.003@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+
+# ── Jira Prod — High utilization (17/18 seats) ─────────────────────────────────
+lic_jira_prod_team_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_jira_prod) %>
+  uuid: "jira.prod.user001@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_jira_prod_team_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_jira_prod) %>
+  uuid: "jira.prod.user002@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_jira_prod_team_003:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_jira_prod) %>
+  uuid: "jira.prod.user003@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+
+# ── Confluence Dev — Growing adoption (12/15 seats) ────────────────────────────
+lic_confluence_dev_author_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_confluence_dev) %>
+  uuid: "doc.author.001@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_confluence_dev_author_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_confluence_dev) %>
+  uuid: "doc.author.002@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_confluence_dev_author_003:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_confluence_dev) %>
+  uuid: "doc.author.003@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -7).to_date %>
+  status: 0
+
+# ── Confluence Prod — High utilization (14/15 seats) ──────────────────────────
+lic_confluence_prod_user_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_confluence_prod) %>
+  uuid: "wiki.user001@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_confluence_prod_user_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_confluence_prod) %>
+  uuid: "wiki.user002@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_confluence_prod_user_003:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_confluence_prod) %>
+  uuid: "wiki.user003@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+
+# ── Copilot Pro — Field Operations (130/150 seats, 87% utilization) ────────────
+lic_copilot_field_user_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_copilot_pro_fleet) %>
+  uuid: "field.user001@simplexrental.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_copilot_field_user_050:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_copilot_pro_fleet) %>
+  uuid: "field.user050@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_copilot_field_user_130:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:simplex_inst_copilot_pro_fleet) %>
+  uuid: "field.user130@simplexrental.ca"
+  last_access: <%= Time.current.advance(days: -4).to_date %>
+  status: 0
