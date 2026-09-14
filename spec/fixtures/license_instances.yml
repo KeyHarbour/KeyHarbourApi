@@ -1,0 +1,249 @@
+_fixture:
+  model_class: License::Instance
+
+simplex_inst_okta:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_okta) %>
+  uuid: 5imp1ins-0001-4000-8000-b00000000001
+  name: "Okta — Production Tenant"
+  short_name: "OKTA-PROD"
+  owner: "mc.lessard@simplexrental.ca"
+  seats: 500
+  unit_cost: 9.00
+  renewal_date: <%= Time.current.advance(months: 8).to_date %>
+  status: 0
+
+simplex_inst_snowflake:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_snowflake) %>
+  uuid: 5imp1ins-0002-4000-8000-b00000000002
+  name: "Snowflake — ca-central-1 Production"
+  short_name: "SNOW-PROD"
+  owner: "j.roy@simplexrental.ca"
+  unit_cost: 2000.00
+  renewal_date: <%= Time.current.advance(months: 4).to_date %>
+  status: 0
+
+simplex_inst_github:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_github) %>
+  uuid: 5imp1ins-0003-4000-8000-b00000000003
+  name: "GitHub Enterprise — simplex-rental org"
+  short_name: "GH-ENT"
+  owner: "e.beauchamp@simplexrental.ca"
+  seats: 50
+  unit_cost: 21.00
+  renewal_date: <%= Time.current.advance(months: 14).to_date %>
+  status: 0
+
+simplex_inst_samsara_vehicles:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_samsara) %>
+  uuid: 5imp1ins-0004-4000-8000-b00000000004
+  name: "Samsara — Vehicle Fleet (MTL + QC depots)"
+  short_name: "SAM-VEH"
+  owner: "m.cote@simplexrental.ca"
+  seats: 200
+  unit_cost: 30.00
+  renewal_date: <%= Time.current.advance(months: 6).to_date %>
+  status: 0
+
+simplex_inst_samsara_equipment:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_samsara) %>
+  uuid: 5imp1ins-0005-4000-8000-b00000000005
+  name: "Samsara — Equipment Asset Tracking"
+  short_name: "SAM-EQP"
+  owner: "m.cote@simplexrental.ca"
+  seats: 120
+  unit_cost: 30.00
+  renewal_date: <%= Time.current.advance(months: 6).to_date %>
+  status: 0
+
+simplex_inst_servicenow:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_servicenow) %>
+  uuid: 5imp1ins-0006-4000-8000-b00000000006
+  name: "ServiceNow FSM — Technician Seats"
+  short_name: "SNOW-FSM"
+  owner: "f.lapointe@simplexrental.ca"
+  seats: 90
+  unit_cost: 150.00
+  renewal_date: <%= Time.current.advance(months: 2).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+
+simplex_inst_salesforce:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_salesforce) %>
+  uuid: 5imp1ins-0007-4000-8000-b00000000007
+  name: "Salesforce Sales Cloud — Québec Region"
+  short_name: "SF-QC"
+  owner: "pierre.gagnon@simplexrental.ca"
+  seats: 120
+  unit_cost: 75.00
+  renewal_date: <%= Time.current.advance(months: 3).to_date %>
+  status: 0
+
+simplex_inst_workday:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_workday) %>
+  uuid: 5imp1ins-0008-4000-8000-b00000000008
+  name: "Workday HCM — Simplex Rental Tenant"
+  short_name: "WD-PROD"
+  owner: "i.tremblay@simplexrental.ca"
+  seats: 460
+  unit_cost: 40.00
+  renewal_date: <%= Time.current.advance(months: 11).to_date %>
+  status: 0
+
+simplex_inst_netsuite_fin:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_netsuite) %>
+  uuid: 5imp1ins-0009-4000-8000-b00000000009
+  name: "NetSuite — Financial & Accounting"
+  short_name: "NS-FIN"
+  owner: "pierre.gagnon@simplexrental.ca"
+  seats: 15
+  unit_cost: 999.00
+  renewal_date: <%= Time.current.advance(months: 5).to_date %>
+  status: 0
+
+simplex_inst_netsuite_wms:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_netsuite) %>
+  uuid: 5imp1ins-0010-4000-8000-b00000000010
+  name: "NetSuite — Warehouse Management (4 depots)"
+  short_name: "NS-WMS"
+  owner: "pierre.gagnon@simplexrental.ca"
+  seats: 10
+  unit_cost: 999.00
+  renewal_date: <%= Time.current.advance(months: 5).to_date %>
+  status: 0
+
+# ── Slack — High-utilization with urgent renewal ──────────────────────────────
+simplex_inst_slack_prod:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_slack) %>
+  uuid: 5imp1ins-0011-4000-8000-b00000000011
+  name: "Slack — Production Workspace"
+  short_name: "SLACK-PROD"
+  owner: "c.dube@simplexrental.ca"
+  seats: 350
+  unit_cost: 8.25
+  renewal_date: <%= Time.current.advance(days: 15).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+
+# ── Microsoft 365 — Critical renewal in 8 days ────────────────────────────────
+simplex_inst_m365_prod:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_microsoft_365) %>
+  uuid: 5imp1ins-0012-4000-8000-b00000000012
+  name: "Microsoft 365 — All Users (Exchange, Teams, Sharepoint)"
+  short_name: "M365-PROD"
+  owner: "pierre.gagnon@simplexrental.ca"
+  seats: 500
+  unit_cost: 22.00
+  renewal_date: <%= Time.current.advance(days: 8).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+
+# ── Datadog — OVERDUE RENEWAL (45 days past) ───────────────────────────────────
+simplex_inst_datadog_prod:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_datadog) %>
+  uuid: 5imp1ins-0013-4000-8000-b00000000013
+  name: "Datadog — Production Infrastructure Monitoring"
+  short_name: "DD-PROD"
+  owner: "mc.lessard@simplexrental.ca"
+  seats: 1
+  unit_cost: 15.00
+  renewal_date: <%= Time.current.advance(days: -45).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+
+# ── Figma — Approaching renewal (22 days) ──────────────────────────────────────
+simplex_inst_figma_prod:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_figma) %>
+  uuid: 5imp1ins-0014-4000-8000-b00000000014
+  name: "Figma — Design System & Product Design"
+  short_name: "FIGMA-PROD"
+  owner: "c.dube@simplexrental.ca"
+  seats: 85
+  unit_cost: 240.00
+  renewal_date: <%= Time.current.advance(days: 22).to_date %>
+  status: 0
+
+# ── 1Password — Very high seat utilization (near limit) ────────────────────────
+simplex_inst_1password_prod:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_1password) %>
+  uuid: 5imp1ins-0015-4000-8000-b00000000015
+  name: "1Password — Organization Vault"
+  short_name: "1PWD-PROD"
+  owner: "mc.lessard@simplexrental.ca"
+  seats: 200
+  unit_cost: 5.00
+  renewal_date: <%= Time.current.advance(months: 1, days: 10).to_date %>
+  status: 0
+
+# ── Notion — Low utilization, good renewal window ────────────────────────────
+simplex_inst_notion_prod:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_notion) %>
+  uuid: 5imp1ins-0016-4000-8000-b00000000016
+  name: "Notion — Documentation & Knowledge Base"
+  short_name: "NOTION-PROD"
+  owner: "i.tremblay@simplexrental.ca"
+  seats: 1
+  unit_cost: 10.00
+  renewal_date: <%= Time.current.advance(months: 9).to_date %>
+  status: 0
+
+# ── Jira Cloud — Multi-tier deployment ─────────────────────────────────────────
+simplex_inst_jira_dev:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_jira_cloud) %>
+  uuid: 5imp1ins-0017-4000-8000-b00000000017
+  name: "Jira — Development & Testing"
+  short_name: "JIRA-DEV"
+  owner: "e.beauchamp@simplexrental.ca"
+  seats: 12
+  unit_cost: 99.00
+  renewal_date: <%= Time.current.advance(months: 7).to_date %>
+  status: 0
+
+simplex_inst_jira_prod:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_jira_cloud) %>
+  uuid: 5imp1ins-0018-4000-8000-b00000000018
+  name: "Jira — Production Release Management"
+  short_name: "JIRA-PROD"
+  owner: "e.beauchamp@simplexrental.ca"
+  seats: 18
+  unit_cost: 99.00
+  renewal_date: <%= Time.current.advance(months: 7).to_date %>
+  status: 0
+
+# ── Confluence Cloud — Multi-tier deployment ───────────────────────────────────
+simplex_inst_confluence_dev:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_confluence) %>
+  uuid: 5imp1ins-0019-4000-8000-b00000000019
+  name: "Confluence — Engineering Documentation"
+  short_name: "CONF-DEV"
+  owner: "e.beauchamp@simplexrental.ca"
+  seats: 15
+  unit_cost: 65.00
+  renewal_date: <%= Time.current.advance(months: 7).to_date %>
+  status: 0
+
+simplex_inst_confluence_prod:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_confluence) %>
+  uuid: 5imp1ins-0020-4000-8000-b00000000020
+  name: "Confluence — Company Wiki & Policies"
+  short_name: "CONF-PROD"
+  owner: "e.beauchamp@simplexrental.ca"
+  seats: 15
+  unit_cost: 65.00
+  renewal_date: <%= Time.current.advance(months: 7).to_date %>
+  status: 0
+
+# ── Copilot Pro — Critical renewal in 3 days ───────────────────────────────────
+simplex_inst_copilot_pro_fleet:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:simplex_app_copilot_pro) %>
+  uuid: 5imp1ins-0021-4000-8000-b00000000021
+  name: "Copilot Pro — Field Operations & Dispatching"
+  short_name: "COPILOT-OPS"
+  owner: "m.cote@simplexrental.ca"
+  seats: 150
+  unit_cost: 20.00
+  renewal_date: <%= Time.current.advance(days: 3).to_date %>
+  status: 0

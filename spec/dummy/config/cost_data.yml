@@ -1,0 +1,15 @@
+- id: KeyValueStore
+  service_type: query
+  credits: 1
+- id: Statefile
+  service_type: query
+  credits: 1  
+- id: TrustAsset
+  service_type: monthly
+  credits: 6
+- id: License
+  service_type: monthly
+  credits: 110
+- id: Api
+  service_type: query
+  credits: 0

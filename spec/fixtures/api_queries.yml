@@ -1,0 +1,395 @@
+<% 1000.times do |index| %>
+log_projects_show_fivetran_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:fivetran) %>
+  controller: api/v2/projects
+  action: show
+  token: <%= ActiveRecord::FixtureSet.identify(:data_fivetran_project) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+
+<% 2000.times do |index| %>
+log_projects_show_simplex_nexus_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:simplex_nexus) %>
+  controller: api/v2/projects
+  action: show
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_nexus_sbx) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+
+<% 100.times do |index| %>
+log_projects_update_fivetran_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:fivetran) %>
+  controller: api/v2/projects
+  action: update
+  token: <%= ActiveRecord::FixtureSet.identify(:data_fivetran_project) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+
+<% 200.times do |index| %>
+log_projects_index_fivetran_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:fivetran) %>
+  controller: api/v2/projects
+  action: index
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+
+<% 10.times do |index| %>
+log_projects_create_fivetran_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:fivetran) %>
+  controller: api/v2/projects
+  action: create
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+
+<% 800.times do |index| %>
+log_projects_show_montecarlo_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:montecarlo) %>
+  controller: api/v2/projects
+  action: show
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+
+<% 30.times do |index| %>
+log_projects_update_montecarlo_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:montecarlo) %>
+  controller: api/v2/projects
+  action: update
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+
+<% 100.times do |index| %>
+log_projects_index_montecarlo_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:montecarlo) %>
+  controller: api/v2/projects
+  action: index
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+
+<% 25.times do |index| %>
+log_projects_create_montecarlo_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:montecarlo) %>
+  controller: api/v2/projects
+  action: create
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+
+<% 700.times do |index| %>
+log_projects_show_security_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:security) %>
+  controller: api/v2/projects
+  action: show
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+<% 50.times do |index| %>
+log_projects_update_security_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:security) %>
+  controller: api/v2/projects
+  action: update
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+<% 90.times do |index| %>
+log_projects_index_security_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:security) %>
+  controller: api/v2/projects
+  action: index
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+<% 15.times do |index| %>
+log_projects_create_security_<%=index %>:
+  serviceable_type: 'Project'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:security) %>
+  controller: api/v2/projects
+  action: create
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Api
+<% end %>
+
+<% 200.times do |index| %>
+log_key_value_store_show_security_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_security) %>
+  controller: api/v2/key_value_stores
+  action: show
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+<% 80.times do |index| %>
+log_key_value_store_index_security_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_security) %>
+  controller: api/v2/key_value_stores
+  action: index
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+<% 50.times do |index| %>
+log_key_value_store_create_security_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_security) %>
+  controller: api/v2/key_value_stores
+  action: create
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+<% 20.times do |index| %>
+log_key_value_store_update_security_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_security) %>
+  controller: api/v2/key_value_stores
+  action: update
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+<% 30.times do |index| %>
+log_key_value_store_destroy_security_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_security) %>
+  controller: api/v2/key_value_stores
+  action: destroy
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+
+<% 300.times do |index| %>
+log_key_value_store_show_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  controller: api/v2/key_value_stores
+  action: show
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+<% 30.times do |index| %>
+log_key_value_store_index_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  controller: api/v2/key_value_stores
+  action: index
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+<% 90.times do |index| %>
+log_key_value_store_create_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  controller: api/v2/key_value_stores
+  action: create
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+<% 100.times do |index| %>
+log_key_value_store_update_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  controller: api/v2/key_value_stores
+  action: update
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+<% 40.times do |index| %>
+log_key_value_store_destroy_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  controller: api/v2/key_value_stores
+  action: destroy
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+<% 45.times do |index| %>
+log_key_value_store_destroy_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:infra_nexus) %>
+  controller: api/v2/key_value_stores
+  action: destroy
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+
+<% 52.times do |index| %>
+log_key_value_store_destroy_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:simplex_ops_wks) %>
+  controller: api/v2/key_value_stores
+  action: destroy
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: KeyValueStore
+<% end %>
+
+<% 100.times do |index| %>
+log_statefile_show_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  controller: api/v2/statefiles
+  action: show
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Statefile
+<% end %>
+
+<% 100.times do |index| %>
+log_statefile_last_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  controller: api/v2/statefiles
+  action: last
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Statefile
+<% end %>
+
+<% 150.times do |index| %>
+log_statefile_infra_nexus_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:infra_nexus) %>
+  controller: api/v2/statefiles
+  action: last
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Statefile
+<% end %>
+
+<% 100.times do |index| %>
+log_statefile_create_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  controller: api/v2/statefiles
+  action: create
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Statefile
+<% end %>
+
+<% 12.times do |index| %>
+log_statefile_destroy_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  controller: api/v2/statefiles
+  action: destroy
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Statefile
+<% end %>
+
+<% 5.times do |index| %>
+log_statefile_delete_all_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  controller: api/v2/statefiles
+  action: delete_all
+  token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Statefile
+<% end %>
+
+
+<% 200.times do |index| %>
+log_statefile_show_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_fivetran) %>
+  controller: api/v2/statefiles
+  action: show
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Statefile
+<% end %>
+
+<% 200.times do |index| %>
+log_statefile_last_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_security) %>
+  controller: api/v2/statefiles
+  action: last
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Statefile
+<% end %>
+
+<% 300.times do |index| %>
+log_statefile_create_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_security) %>
+  controller: api/v2/statefiles
+  action: create
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Statefile
+<% end %>
+
+<% 5.times do |index| %>
+log_statefile_destroy_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_security) %>
+  controller: api/v2/statefiles
+  action: destroy
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Statefile
+<% end %>
+
+<% 51.times do |index| %>
+log_statefile_delete_all_fivetran_<%=index %>:
+  serviceable_type: 'Workspace'
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:app_security) %>
+  controller: api/v2/statefiles
+  action: delete_all
+  token: <%= ActiveRecord::FixtureSet.identify(:infra_org) %>
+  date: <%= rand(Time.current.advance(months: -2).beginning_of_month..Time.current).to_fs(:db) %>
+  service_name: Statefile
+<% end %>

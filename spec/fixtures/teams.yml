@@ -1,0 +1,39 @@
+# KeyHarbour existing teams (from seeds/teams.rb pattern)
+kh_admin_team:
+  account: kh
+  uuid: kh_admin_team
+  name: "Admin"
+  description: "KeyHarbour platform administrators"
+  source: 0
+kh_contributor_team:
+  account: kh
+  uuid: kh_contributor_team
+  name: "Contributor"
+  description: "KeyHarbour contributors with edit access"
+  source: 0
+kh_viewer_team:
+  account: kh
+  uuid: kh_viewer_team
+  name: "Viewer"
+  description: "Read-only access to all KH resources"
+  source: 0
+
+# Simplex Rental Inc. — internal teams managing software licenses
+simplex_it_team:
+  account: simplex
+  uuid: simplex_it_team
+  name: "IT & Cloud Engineering"
+  description: "Manages identity, infrastructure, and developer tooling licenses"
+  source: 0
+simplex_ops_team:
+  account: simplex
+  uuid: simplex_it_team
+  name: "Field Operations"
+  description: "Manages fleet tracking and field service software"
+  source: 0
+simplex_finance_team:
+  account: simplex
+  uuid: simplex_finance_team
+  name: "Finance & Corporate Systems"
+  description: "Manages ERP, CRM, and HCM software licenses"
+  source: 0

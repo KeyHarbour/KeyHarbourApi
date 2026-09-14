@@ -1,0 +1,30 @@
+free:
+  name: test
+  uuid: testfree
+  valid_at: <%= Time.current.advance(days: -1).to_fs(:db) %>
+  valid_until: <%= Time.current.advance(days: 10).to_fs(:db) %>
+  percent_off: 100
+  duration_limited: true
+  duration_in_month: 3
+  redeem_limit: 1
+  plan_id: free
+off50p:
+  name: test50off
+  uuid: test50off
+  valid_at: <%= Time.current.advance(days: -1).to_fs(:db) %>
+  valid_until: <%= Time.current.advance(days: 10).to_fs(:db) %>
+  percent_off: 50
+  duration_limited: true
+  duration_in_month: 3
+  redeem_limit: 1
+  plan_id: pro  
+off10:
+  name: test10off
+  uuid: test10ff
+  valid_at: <%= Time.current.advance(days: -1).to_fs(:db) %>
+  valid_until: <%= Time.current.advance(days: 10).to_fs(:db) %>
+  amount_off: 10
+  duration_limited: true
+  duration_in_month: 3
+  redeem_limit: 1
+  plan_id: startup  

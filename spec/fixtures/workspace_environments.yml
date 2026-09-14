@@ -1,0 +1,3 @@
+app_fivetran_production10:
+  workspace: app_fivetran
+  environment: production10   

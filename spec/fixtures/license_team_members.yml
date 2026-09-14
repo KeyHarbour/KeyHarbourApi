@@ -1,0 +1,191 @@
+_fixture:
+  model_class: License::TeamMember
+
+# ── IT & Infrastructure org chart ────────────────────────────────────────────
+simplex_tm_cto:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_it) %>
+  uuid: "mc.lessard@simplexrental.ca"
+  role: "IT Director"
+
+simplex_tm_devops:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_it) %>
+  uuid: "e.beauchamp@simplexrental.ca"
+  role: "DevOps Engineer"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_cto) %>
+
+simplex_tm_it_admin:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_it) %>
+  uuid: "j.roy@simplexrental.ca"
+  role: "IT Administrator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_cto) %>
+
+simplex_tm_it_intern:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_it) %>
+  uuid: "devops.intern@simplexrental.ca"
+  role: "IT Intern"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_devops) %>
+
+# ── Field Operations org chart ────────────────────────────────────────────────
+simplex_tm_ops_director:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_ops) %>
+  uuid: "f.lapointe@simplexrental.ca"
+  role: "Operations Director"
+
+simplex_tm_fleet_manager:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_ops) %>
+  uuid: "m.cote@simplexrental.ca"
+  role: "Fleet Manager"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_ops_director) %>
+
+simplex_tm_tech_morin:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_ops) %>
+  uuid: "alexandre.morin@simplexrental.ca"
+  role: "Senior Field Technician"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_fleet_manager) %>
+
+simplex_tm_tech_ouellet:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_ops) %>
+  uuid: "gabriel.ouellet@simplexrental.ca"
+  role: "Field Technician"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_fleet_manager) %>
+
+simplex_tm_tech_ross:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_ops) %>
+  uuid: "mariepier.ross@simplexrental.ca"
+  role: "Field Technician"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_fleet_manager) %>
+
+simplex_tm_tech_bergeron:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_ops) %>
+  uuid: "samuel.bergeron@simplexrental.ca"
+  role: "Field Technician"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_tech_morin) %>
+
+simplex_tm_tech_pelletier:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_ops) %>
+  uuid: "jessica.pelletier@simplexrental.ca"
+  role: "Field Technician"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_tech_morin) %>
+
+# ── Corporate & Finance org chart ─────────────────────────────────────────────
+simplex_tm_cfo:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "pierre.gagnon@simplexrental.ca"
+  role: "CFO"
+
+simplex_tm_hr_director:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "i.tremblay@simplexrental.ca"
+  role: "HR Director"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_cfo) %>
+
+simplex_tm_sales_director:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "c.dube@simplexrental.ca"
+  role: "Sales Director"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_cfo) %>
+
+simplex_tm_controller:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "sophie.cloutier@simplexrental.ca"
+  role: "Financial Controller"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_cfo) %>
+
+simplex_tm_hr_gen_1:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "hr.generalist1@simplexrental.ca"
+  role: "HR Generalist"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_hr_director) %>
+
+simplex_tm_hr_gen_2:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "hr.generalist2@simplexrental.ca"
+  role: "HR Generalist"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_hr_director) %>
+
+simplex_tm_rep_nadeau:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "eric.nadeau@simplexrental.ca"
+  role: "Senior Account Executive"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_sales_director) %>
+
+simplex_tm_rep_paquin:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "valerie.paquin@simplexrental.ca"
+  role: "Account Executive"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_sales_director) %>
+
+simplex_tm_rep_thibault:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "christian.thibault@simplexrental.ca"
+  role: "Account Executive"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_sales_director) %>
+
+# ── IT & Infrastructure (continued) — New licenses ────────────────────────────
+simplex_tm_security_lead:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_it) %>
+  uuid: "c.dube@simplexrental.ca"
+  role: "Security Lead"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_cto) %>
+
+simplex_tm_infra_engineer:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_it) %>
+  uuid: "e.beauchamp@simplexrental.ca"
+  role: "Infrastructure Engineer"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_cto) %>
+
+simplex_tm_monitoring_specialist:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_it) %>
+  uuid: "monitoring.lead@simplexrental.ca"
+  role: "Monitoring & Observability Specialist"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_infra_engineer) %>
+
+simplex_tm_jira_admin:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_it) %>
+  uuid: "jira.admin@simplexrental.ca"
+  role: "Jira Administrator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_devops) %>
+
+simplex_tm_confluence_admin:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_it) %>
+  uuid: "confluence.admin@simplexrental.ca"
+  role: "Confluence Administrator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_devops) %>
+
+# ── Corporate & Finance (continued) — New licenses ───────────────────────────
+simplex_tm_slack_admin:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "slack.admin@simplexrental.ca"
+  role: "Slack Workspace Administrator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_cfo) %>
+
+simplex_tm_m365_admin:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "m365.admin@simplexrental.ca"
+  role: "Microsoft 365 Administrator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_cfo) %>
+
+simplex_tm_notion_admin:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "i.tremblay@simplexrental.ca"
+  role: "Notion Workspace Owner"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_hr_director) %>
+
+simplex_tm_figma_lead:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "c.dube@simplexrental.ca"
+  role: "Design System Lead"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_sales_director) %>
+
+simplex_tm_design_manager:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_corporate) %>
+  uuid: "design.manager@simplexrental.ca"
+  role: "Design Manager"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_figma_lead) %>
+
+# ── Field Operations (continued) — New licenses ────────────────────────────────
+simplex_tm_copilot_coordinator:
+  organization_id: <%= ActiveRecord::FixtureSet.identify(:simplex_ops) %>
+  uuid: "m.cote@simplexrental.ca"
+  role: "AI Tools Coordinator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:simplex_tm_ops_director) %>

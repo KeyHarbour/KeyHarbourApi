@@ -1,0 +1,42 @@
+production10_fivetran:
+  project: fivetran
+  environment: production10
+sandbox10_fivetran:
+  project: fivetran
+  environment: sandbox10
+dev10_fivetran:
+  project: fivetran
+  environment: dev10
+lab10_fivetran:
+  project: fivetran
+  environment: lab10
+production10_dbtcloud:
+  project: dbtcloud
+  environment: production10
+sandbox10_dbtcloud:
+  project: dbtcloud
+  environment: sandbox10
+production10_montecarlo:
+  project: montecarlo
+  environment: production10
+dev10_montecarlo:
+  project: montecarlo
+  environment: dev10
+lab10_montecarlo:
+  project: montecarlo
+  environment: lab10
+sbx_nexus:
+  project: simplex_nexus
+  environment: sandbox_simplex
+production_nexus:
+  project: simplex_nexus
+  environment: production_simplex
+qa_nexus:
+  project: simplex_nexus
+  environment: qa_simplex
+sbx_nexus_ops:
+  project: simplex_ops_prj
+  environment: sandbox_simplex_ops
+production_nexus_ops:
+  project: simplex_ops_prj
+  environment: production_simplex_ops

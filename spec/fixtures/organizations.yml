@@ -1,0 +1,55 @@
+finance:
+  account: kh
+  name: Finance (archived)
+  status: 2
+  uuid: 3d59f2cc-af17-44e6-9579-2d3b91370726
+dev:
+  account: kh
+  name: Development (disable)
+  status: 1
+  uuid: 74b23312-12ff-4a50-a16c-c7d163976bf2
+infra:
+  account: kh
+  name: Infrastructure
+  status: 0
+  uuid: 0fb9d9f9-fffb-4172-9e2c-1cc21ddcbdd9
+data:
+  account: kh
+  name: Data Science
+  status: 0
+  uuid: 42597d75-42cc-4217-892f-17da447076d6
+basement:
+  account: building
+  name: The Basement
+  status: 0
+  uuid: 35810000-1111-0000-1111-000000000000
+first_floor:
+  account: building
+  name: First Floor
+  status: 0
+  uuid: 35810000-2222-0000-2222-000000000000
+top_floor:
+  account: building
+  name: Top Floor
+  status: 0
+  uuid: 35810000-3333-0000-3333-000000000000
+
+# Simplex Rental Inc. — Organizations
+simplex_it:
+  account: simplex
+  name: "IT & Cloud Engineering"
+  description: "Manages identity, infrastructure, and developer tooling licenses (Okta, AWS, GCP, GitHub)"
+  status: 0
+  uuid: 45670000-1000-0000-0000-000000000001
+simplex_ops:
+  account: simplex
+  name: "Field Operations"
+  description: "Manages fleet tracking, field service, and mobile workforce software"
+  status: 0
+  uuid: 45670000-2000-0000-0000-000000000002
+simplex_corporate:
+  account: simplex
+  name: "Finance & Corporate Systems"
+  description: "Manages ERP, CRM, HCM, and financial software licenses"
+  status: 0
+  uuid: 45670000-3000-0000-0000-000000000003

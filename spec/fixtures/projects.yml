@@ -1,0 +1,74 @@
+licence:
+  name: "Licence"
+  uuid: 87cec162-19b1-4748-a6cd-66b9d6757329
+  status: 0
+  organization: dev
+state_file:
+  name: "Statefile"
+  uuid: 3175e00c-03a8-45d2-821f-173163538000
+  status: 1
+  organization: data
+key_value_store:
+  name: "Key Value Store"
+  uuid: 5175e00c-03a8-45d2-821f-173163538001
+  status: 2
+  organization: data
+ssl_calendar:
+  name: "SSL Calendar"
+  uuid: 5175e00c-03a8-45d2-821f-173163538002
+  status: 1
+  organization: data
+fivetran:
+  name: "Five Tran"
+  uuid: 5175e00c-03a8-45d2-821f-173163538003
+  status: 0
+  organization: data
+dbtcloud:
+  name: "BDT Cloud"
+  uuid: 5175e00c-03a8-45d2-821f-173163538004
+  status: 0
+  organization: data
+montecarlo:
+  name: "Montecarlo"
+  uuid: 5175e00c-03a8-45d2-821f-173163538005
+  status: 0
+  organization: data
+security:
+  name: "Security"
+  uuid: 5175e00c-03a8-45d2-821f-173163538006
+  status: 0
+  organization: infra
+access:
+  name: "access"
+  uuid: 5175e00c-03a8-45d2-821f-173163538007
+  status: 0
+  organization: infra
+
+# Simplex Rental Inc. — Cross-org SSO Projects
+simplex_servicenow:
+  name: "ServiceNow (SSO Integration)"
+  description: "Cross-organization SSO/SCIM integration for identity and IT service management"
+  uuid: 45670000-4000-0000-0000-000000000001
+  status: 0
+  organization: simplex_it
+
+simplex_salesforce:
+  name: "Salesforce (SSO Integration)"
+  description: "Cross-organization SSO/SCIM integration for CRM and field operations"
+  uuid: 45670000-5000-0000-0000-000000000002
+  status: 0
+  organization: simplex_it
+
+simplex_nexus:
+  name: "Sonatype Nexus Onprems"
+  description: "Sonatype nexus"
+  uuid: 45670000-6000-0000-0000-000000000001
+  status: 0
+  organization: simplex_it
+
+simplex_ops_prj:
+  name: "Ops"
+  description: "Ops project, perfect to keep key/value"
+  uuid: 45670000-7000-0000-0000-000000000001
+  status: 0
+  organization: simplex_ops

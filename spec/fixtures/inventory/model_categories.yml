@@ -1,0 +1,15 @@
+imc_non_billable:
+  name: "Azure Resource Group"
+  organization: simplex_it
+  model_family: non_billable
+  resource_type: azurerm_resource_group
+imc_azurerm_subnet:
+  name: "Subnet"
+  organization: simplex_it
+  model_family: billable
+  resource_type: azurerm_subnet
+imc_azurerm_postgresql_flexible_server:
+  name: "Postgresql"
+  organization: simplex_it
+  model_family: billable
+  resource_type: azurerm_postgresql_flexible_server  

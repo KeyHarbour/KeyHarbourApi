@@ -1,0 +1,140 @@
+# Administrateurs et Direction (Core Execution)
+chief_executive:
+  name: Alice Martin
+  email_address: info@keyharbour.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+  global_role: 0
+
+nobody:
+  name: Test Registration
+  email_address: test@keyharbour.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+chief_technology:
+  name: David Tremblay
+  email_address: david.tremblay@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+# Équipe Core Product & Recommandation
+lead_engineer_recommendation:
+  name: Thomas Bernard
+  email_address: thomas.bernard@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+senior_dev_recommendation:
+  name: Sarah Lucas
+  email_address: sarah.lucas@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+product_manager_recommendation:
+  name: Emma Petit
+  email_address: emma.petit@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+# Équipe Plateforme & DevOps (Infrastructure)
+infrastructure_lead:
+  name: Robert Moreau
+  email_address: robert.moreau@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+devops_engineer_prod:
+  name: Julien Fontaine
+  email_address: julien.fontaine@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+site_reliability_engineer:
+  name: Nicolas Roux
+  email_address: nicolas.roux@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+# Équipe Sécurité & Accès (SecOps)
+security_officer:
+  name: Chloe Garcia
+  email_address: chloe.garcia@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+cybersecurity_analyst:
+  name: Marc Dubois
+  email_address: marc.dubois@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+# Équipe Données & Analytics (Data Team)
+data_scientist_core:
+  name: Sophie Michel
+  email_address: sophie.michel@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+data_engineer_pipeline:
+  name: Pierre Laurent
+  email_address: pierre.laurent@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+# Consultants Externes & QA (Quality Assurance)
+qa_automation_lead:
+  name: Lea Simon
+  email_address: lea.simon@partner.example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+external_auditor:
+  name: Jean Mercier
+  email_address: jean.mercier@audit.example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+# Support Technique
+customer_success_lead:
+  name: Antoine Gautier
+  email_address: antoine.gautier@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+support_agent_tier3:
+  name: Mathieu Andre
+  email_address: mathieu.andre@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+technical_writer:
+  name: Lucie Lambert
+  email_address: lucie.lambert@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+# Simplex Rental Inc. — IT & Cloud Engineering Team
+simplex_it_director:
+  name: "Marcus Johnson"
+  email_address: marcus.johnson@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+simplex_devops:
+  name: "Emily Chen"
+  email_address: emily.chen@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+simplex_it_admin:
+  name: "James Wilson"
+  email_address: james.wilson@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+# Simplex Rental Inc. — Field Operations Team
+simplex_ops_manager:
+  name: "Rebecca Torres"
+  email_address: rebecca.torres@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+simplex_fleet_manager:
+  name: "David Park"
+  email_address: david.park@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+# Simplex Rental Inc. — Finance & Corporate Systems Team
+simplex_cfo:
+  name: "Patricia Martinez"
+  email_address: patricia.martinez@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+simplex_hr_director:
+  name: "Linda Anderson"
+  email_address: linda.anderson@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
+
+simplex_sales_director:
+  name: "Richard Brown"
+  email_address: richard.brown@example.ca
+  password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.

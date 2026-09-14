@@ -1,0 +1,268 @@
+_fixture:
+  model_class: License::Application
+
+# ── Simplex IT & Infrastructure ───────────────────────────────────────────────
+
+simplex_app_okta:
+  organization: simplex_it
+  uuid: 5imp1app-0001-4000-8000-a00000000001
+  name: "Okta Workforce Identity Cloud"
+  short_name: "Okta"
+  vendor: "Okta Inc."
+  owner: "mc.lessard@simplexrental.ca"
+  tier: "Enterprise"
+  seats: 500
+  unit_cost: 9.00
+  renewal_date: <%= Time.current.advance(months: 8).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+  alert_seats_1: 0.85
+  alert_seats_2: 0.95
+
+simplex_app_snowflake:
+  organization: simplex_it
+  uuid: 5imp1app-0002-4000-8000-a00000000002
+  name: "Snowflake Data Cloud"
+  short_name: "Snowflake"
+  vendor: "Snowflake Inc."
+  owner: "j.roy@simplexrental.ca"
+  tier: "Business Critical"
+  unit_cost: 2000.00
+  renewal_date: <%= Time.current.advance(months: 4).to_date %>
+  status: 0
+  alert_renewal_1: 60
+  alert_renewal_2: 30
+
+simplex_app_github:
+  organization: simplex_it
+  uuid: 5imp1app-0003-4000-8000-a00000000003
+  name: "GitHub Enterprise Cloud"
+  short_name: "GitHub"
+  vendor: "GitHub Inc. (Microsoft)"
+  owner: "e.beauchamp@simplexrental.ca"
+  tier: "Enterprise"
+  seats: 50
+  unit_cost: 21.00
+  renewal_date: <%= Time.current.advance(months: 14).to_date %>
+  status: 0
+
+# ── Simplex Field Operations ───────────────────────────────────────────────────
+
+simplex_app_samsara:
+  organization: simplex_ops
+  uuid: 5imp1app-0004-4000-8000-a00000000004
+  name: "Samsara Fleet & Equipment Tracking"
+  short_name: "Samsara"
+  vendor: "Samsara Inc."
+  owner: "m.cote@simplexrental.ca"
+  tier: "Enterprise"
+  seats: 320
+  unit_cost: 30.00
+  renewal_date: <%= Time.current.advance(months: 6).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+
+simplex_app_servicenow:
+  organization: simplex_ops
+  uuid: 5imp1app-0005-4000-8000-a00000000005
+  name: "ServiceNow Field Service Management"
+  short_name: "ServiceNow FSM"
+  vendor: "ServiceNow Inc."
+  owner: "f.lapointe@simplexrental.ca"
+  tier: "Professional"
+  seats: 90
+  unit_cost: 150.00
+  renewal_date: <%= Time.current.advance(months: 2).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+
+# ── Simplex Corporate & Finance ────────────────────────────────────────────────
+
+simplex_app_salesforce:
+  organization: simplex_corporate
+  uuid: 5imp1app-0006-4000-8000-a00000000006
+  name: "Salesforce Sales Cloud"
+  short_name: "Salesforce"
+  vendor: "Salesforce Inc."
+  owner: "pierre.gagnon@simplexrental.ca"
+  tier: "Enterprise"
+  seats: 120
+  unit_cost: 75.00
+  renewal_date: <%= Time.current.advance(months: 3).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+  alert_seats_1: 0.85
+  alert_seats_2: 0.95
+
+simplex_app_workday:
+  organization: simplex_corporate
+  uuid: 5imp1app-0007-4000-8000-a00000000007
+  name: "Workday Human Capital Management"
+  short_name: "Workday HCM"
+  vendor: "Workday Inc."
+  owner: "i.tremblay@simplexrental.ca"
+  tier: "Enterprise"
+  seats: 460
+  unit_cost: 40.00
+  renewal_date: <%= Time.current.advance(months: 11).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+  alert_seats_1: 0.90
+  alert_seats_2: 0.97
+
+simplex_app_netsuite:
+  organization: simplex_corporate
+  uuid: 5imp1app-0008-4000-8000-a00000000008
+  name: "Oracle NetSuite ERP"
+  short_name: "NetSuite"
+  vendor: "Oracle Corporation"
+  owner: "pierre.gagnon@simplexrental.ca"
+  tier: "Premium"
+  seats: 25
+  unit_cost: 999.00
+  renewal_date: <%= Time.current.advance(months: 5).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+
+# ── Simplex Corporate & Finance (continued) ────────────────────────────────────
+
+simplex_app_slack:
+  organization: simplex_corporate
+  uuid: 5imp1app-0009-4000-8000-a00000000009
+  name: "Slack Workspace"
+  short_name: "Slack"
+  vendor: "Slack Technologies (Salesforce)"
+  owner: "c.dube@simplexrental.ca"
+  tier: "Pro"
+  seats: 350
+  unit_cost: 8.25
+  renewal_date: <%= Time.current.advance(days: 15).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+  alert_seats_1: 0.80
+  alert_seats_2: 0.95
+
+simplex_app_microsoft_365:
+  organization: simplex_corporate
+  uuid: 5imp1app-0010-4000-8000-a00000000010
+  name: "Microsoft 365 Enterprise"
+  short_name: "M365"
+  vendor: "Microsoft Corporation"
+  owner: "pierre.gagnon@simplexrental.ca"
+  tier: "Enterprise"
+  seats: 500
+  unit_cost: 22.00
+  renewal_date: <%= Time.current.advance(days: 8).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+  alert_seats_1: 0.90
+  alert_seats_2: 0.97
+
+simplex_app_datadog:
+  organization: simplex_it
+  uuid: 5imp1app-0011-4000-8000-a00000000011
+  name: "Datadog Monitoring & Observability"
+  short_name: "Datadog"
+  vendor: "Datadog Inc."
+  owner: "mc.lessard@simplexrental.ca"
+  tier: "Pro"
+  unit_cost: 15.00
+  renewal_date: <%= Time.current.advance(days: -45).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+
+simplex_app_figma:
+  organization: simplex_corporate
+  uuid: 5imp1app-0012-4000-8000-a00000000012
+  name: "Figma Design Platform"
+  short_name: "Figma"
+  vendor: "Figma Inc."
+  owner: "c.dube@simplexrental.ca"
+  tier: "Organization"
+  seats: 85
+  unit_cost: 240.00
+  renewal_date: <%= Time.current.advance(days: 22).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30
+
+simplex_app_1password:
+  organization: simplex_it
+  uuid: 5imp1app-0013-4000-8000-a00000000013
+  name: "1Password Business"
+  short_name: "1Password"
+  vendor: "1Password (AgileBits Inc.)"
+  owner: "mc.lessard@simplexrental.ca"
+  tier: "Business"
+  seats: 200
+  unit_cost: 5.00
+  renewal_date: <%= Time.current.advance(months: 1, days: 10).to_date %>
+  status: 0
+  alert_renewal_1: 60
+  alert_renewal_2: 30
+  alert_seats_1: 0.95
+  alert_seats_2: 0.99
+
+simplex_app_notion:
+  organization: simplex_corporate
+  uuid: 5imp1app-0014-4000-8000-a00000000014
+  name: "Notion Team Workspace"
+  short_name: "Notion"
+  vendor: "Notion Labs Inc."
+  owner: "i.tremblay@simplexrental.ca"
+  tier: "Team"
+  unit_cost: 10.00
+  renewal_date: <%= Time.current.advance(months: 9).to_date %>
+  status: 0
+
+simplex_app_jira_cloud:
+  organization: simplex_it
+  uuid: 5imp1app-0015-4000-8000-a00000000015
+  name: "Jira Cloud"
+  short_name: "Jira"
+  vendor: "Atlassian Corporation"
+  owner: "e.beauchamp@simplexrental.ca"
+  tier: "Premium"
+  seats: 30
+  unit_cost: 99.00
+  renewal_date: <%= Time.current.advance(months: 7).to_date %>
+  status: 0
+
+simplex_app_confluence:
+  organization: simplex_it
+  uuid: 5imp1app-0016-4000-8000-a00000000016
+  name: "Confluence Cloud"
+  short_name: "Confluence"
+  vendor: "Atlassian Corporation"
+  owner: "e.beauchamp@simplexrental.ca"
+  tier: "Premium"
+  seats: 30
+  unit_cost: 65.00
+  renewal_date: <%= Time.current.advance(months: 7).to_date %>
+  status: 0
+
+# ── Simplex Field Operations (continued) ────────────────────────────────────
+
+simplex_app_copilot_pro:
+  organization: simplex_ops
+  uuid: 5imp1app-0017-4000-8000-a00000000017
+  name: "Microsoft Copilot Pro"
+  short_name: "Copilot Pro"
+  vendor: "Microsoft Corporation"
+  owner: "m.cote@simplexrental.ca"
+  tier: "Pro"
+  seats: 150
+  unit_cost: 20.00
+  renewal_date: <%= Time.current.advance(days: 3).to_date %>
+  status: 0
+  alert_renewal_1: 90
+  alert_renewal_2: 30

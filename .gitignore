@@ -1,0 +1,14 @@
+/.bundle/
+/doc/
+/log/*.log
+/pkg/
+/tmp/
+/test/dummy/log/*.log
+/test/dummy/storage/
+/test/dummy/tmp/
+.idea/
+.DS_Store
+/spec/dummy/log/
+coverage/*
+.env
+.env*

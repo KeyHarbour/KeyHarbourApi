@@ -1,0 +1,35 @@
+kvs_app_fivetran_user_id:
+  environment: dev10
+  key: "user.id"
+  value: "Darth Vador"
+  workspace: app_fivetran
+kvs_app_fivetran_token:
+  environment: dev10
+  key: "app token"
+  value: "MySecretToken"
+  private: true
+  workspace: app_fivetran  
+kvs_app_fivetran_password_one_time:
+  environment: dev10
+  key: "app password one time only"
+  value: "MySecretPasswordOneTimeOnly"
+  private: true
+  workspace: app_fivetran
+  one_time_only: true
+kvs_app_fivetran_app_id_expiration:
+  environment: dev10
+  key: "app.id"
+  value: "123456"
+  workspace: app_fivetran
+  expires_at: <%= Time.current.advance(days: 9).to_fs(:db) %>
+kvs_app_fivetran_user_id:
+  environment: production10
+  key: "ws1_test_key"
+  value: "ws1_test_value"
+  workspace: app_fivetran
+kvs_app_fivetran_token:
+  environment: sandbox_simplex
+  key: "ssh private key"
+  value: "MySecretToken"
+  private: true
+  workspace: infra_nexus    

@@ -1,0 +1,92 @@
+prod:
+  name: Prod
+  organization: finance
+  active: true
+prod00:
+  name: Prod
+  organization: dev
+  active: true  
+production:
+  name: Production
+  organization: infra
+  active: true  
+sandbox:
+  name: Sandbox
+  organization: infra
+  active: true 
+production00:
+  name: Production
+  organization: dev
+  active: true 
+sandbox00:
+  name: Sandbox
+  organization: dev
+  active: true 
+dev00:
+  name: Dev
+  organization: dev
+  active: true 
+lab00:
+  name: Lab
+  organization: dev
+  active: false 
+production10:
+  name: Production
+  organization: data
+  active: true 
+sandbox10:
+  name: Sandbox
+  organization: data
+  active: true 
+dev10:
+  name: Dev
+  organization: data
+  active: true 
+lab10:
+  name: Lab
+  organization: data
+  active: false 
+production01:
+  name: Production
+  organization: basement
+  active: true 
+production02:
+  name: Production
+  organization: first_floor
+  active: true 
+production03:
+  name: Production
+  organization: top_floor
+  active: true 
+sandbox01:
+  name: Sandbox
+  organization: basement
+  active: true 
+sandbox02:
+  name: Sandbox
+  organization: first_floor
+  active: true 
+sandbox03:
+  name: Sandbox
+  organization: top_floor
+  active: true 
+sandbox_simplex:
+  name: Sandbox
+  organization: simplex_it
+  active: true 
+production_simplex:
+  name: Production
+  organization: simplex_it
+  active: true 
+qa_simplex:
+  name: QA
+  organization: simplex_it
+  active: true 
+sandbox_simplex_ops:
+  name: Sandbox
+  organization: simplex_ops
+  active: true 
+production_simplex_ops:
+  name: Production
+  organization: simplex_ops
+  active: true
