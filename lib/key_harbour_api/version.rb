@@ -1,3 +1,3 @@
 module KeyHarbourApi
-  VERSION = File.read("VERSION")
+  VERSION = File.read(File.expand_path('../../VERSION', __dir__)).strip
 end
