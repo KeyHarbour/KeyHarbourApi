@@ -9,6 +9,7 @@
 .idea/
 .DS_Store
 /spec/dummy/log/
-coverage/*
+/coverage/*
+!/coverage/coverage.svg
 .env
 .env*

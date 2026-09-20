@@ -21,11 +21,13 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem "faker"
   gem "debug"
+  gem 'rubocop', require: false
 end
 
 group :test do
   gem 'database_cleaner'
   gem 'simplecov', require: false
+  gem 'simplecov-badge', require: false
 end
 gem "key_harbour_core", git: "https://github.com/KeyHarbour/KeyHarbourCore.git"
 gem "rails-i18n"
