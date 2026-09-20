@@ -84,6 +84,12 @@ jobs:
         run: |
           bundle exec rspec spec
 
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: ./coverage
+          fail_ci_if_error: true          
+
   increment_version:
     name: Increment Version
     runs-on: ubuntu-latest
