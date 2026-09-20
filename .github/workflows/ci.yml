@@ -97,8 +97,18 @@ jobs:
         run: |
           bundle exec rails db:test:prepare RAILS_ENV=test
 
+      - name: Run test
+        run: bundle exec rspec spec
+
       - name: Generate coverage badge
-        run: bundle exec simplecov_badge          
+        run: bin/coverage_badge         
+
+
+      - name: Upload coverage badge
+        uses: actions/upload-artifact@v6
+        with:
+          name: coverage-badge
+          path: coverage.svg
 
   increment_version:
     name: Increment Version
@@ -113,6 +123,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Download coverage badge
+        uses: actions/download-artifact@v7
+        with:
+          name: coverage-badge
+          path: .
+          
       - name: Auto-increment Version and Tag
         id: step_version
         run: |
