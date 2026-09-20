@@ -21,6 +21,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem "faker"
   gem "debug"
+  gem 'rubocop', require: false
+  gem 'simplecov-badge', require: false
 end
 
 group :test do

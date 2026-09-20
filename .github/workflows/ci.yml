@@ -28,13 +28,22 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '4.0.6'
-          bundler-cache: true
+          bundler: '4.0.21'
+          bundler-cache: false
+          
+      - name: Configure Bundler
+        run: bundle config set --local frozen false
+
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
 
       - name: Run RuboCop
         run: bundle exec rubocop --parallel
 
   tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     services:
       postgres:
         image: postgres
@@ -68,21 +77,38 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v7
         with:
-          go-version: '1.22'
+          go-version: '1.26'
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
+          ruby-version: '4.0.6'
+          bundler: '4.0.21'
+          bundler-cache: false
+
+      - name: Configure Bundler
+        run: bundle config set --local frozen false
+
+      - name: Install dependencies
+        run: bundle install --jobs 4 --retry 3
 
       - name: Prepare tests
         working-directory: spec/dummy
         run: |
           bundle exec rails db:test:prepare RAILS_ENV=test
 
-      - name: Run tests
-        run: |
-          bundle exec rspec spec
+      - name: Run test
+        run: bundle exec rspec spec
+
+      - name: Generate coverage badge
+        run: bin/coverage_badge         
+
+
+      - name: Upload coverage badge
+        uses: actions/upload-artifact@v6
+        with:
+          name: coverage-badge
+          path: coverage.svg
 
   increment_version:
     name: Increment Version
@@ -97,6 +123,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Download coverage badge
+        uses: actions/download-artifact@v7
+        with:
+          name: coverage-badge
+          path: .
+          
       - name: Auto-increment Version and Tag
         id: step_version
         run: |
@@ -108,6 +140,7 @@ jobs:
 
           git add VERSION
           git add CHANGELOG.md
+          git add coverage/coverage.svg
           git commit -m "skip: bump version to $VERSION [skip ci]"
           git push origin main
           git tag -a "v$VERSION" -m "Release v$VERSION"
