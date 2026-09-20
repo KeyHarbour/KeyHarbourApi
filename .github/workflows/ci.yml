@@ -15,7 +15,6 @@ env:
   RAILS_ENV: test
   MEILI_MASTER_KEY: password123
   DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432
-  RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
 
 jobs:
   scan_rubocop:
@@ -131,8 +130,6 @@ jobs:
           path: .
           
       - name: Auto-increment Version and Tag
-        env:
-          GH_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         id: step_version
         run: |
           bin/release.rb
@@ -147,6 +144,14 @@ jobs:
           git commit -m "skip: bump version to $VERSION [skip ci]"
           git push origin main
           git tag -a "v$VERSION" -m "Release v$VERSION"
-          git push "https://x-access-token:${GH_TOKEN}@github.com/KeyHarbour/KeyHarbourApi.git" "v$VERSION"
+          git push origin "v$VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
+          
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --generate-notes \
+            --title "${GITHUB_REF_NAME}"
 
