@@ -1,3 +1,10 @@
+## v1.0.3 (2026-09-20)
+
+### Bug Fixes
+* updating coverage.svg path (f654502)
+
+---
+
 ## v1.0.2 (2026-09-20)
 
 ### Bug Fixes
