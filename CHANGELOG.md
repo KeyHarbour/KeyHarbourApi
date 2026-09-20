@@ -1,3 +1,11 @@
+## v1.0.6 (2026-09-20)
+
+### Bug Fixes
+* generate release (6b552a0)
+* generate release (f059b5f)
+
+---
+
 ## v1.0.5 (2026-09-20)
 
 ### Bug Fixes
