@@ -1,3 +1,10 @@
+## v1.0.5 (2026-09-20)
+
+### Bug Fixes
+* generate release (4e24340)
+
+---
+
 ## v1.0.4 (2026-09-20)
 
 ### Bug Fixes
