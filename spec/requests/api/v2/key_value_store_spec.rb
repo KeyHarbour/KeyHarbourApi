@@ -2,12 +2,12 @@ require 'swagger_helper'
 
 RSpec.describe 'keyvalue', type: :request, openapi_spec: 'v2/openapi.yaml' do
   include_context 'project_token'
-  let(:workspace) { create(:workspace, project: project) }
+  let(:workspace) { create(:workspace, project: my_project) }
   let(:workspace_uuid) { workspace.uuid }
 
   before(:each) do
-    create(:key_value_store, :with_value, key: "123", workspace: workspace, environment: token.environment)
-    create(:key_value_store, :with_file, key: "456", one_time_only: false, workspace: workspace, environment: token.environment)
+    create(:key_value_store, :with_value, key: "123", workspace: workspace, environment: token_project.environment)
+    create(:key_value_store, :with_file, key: "456", one_time_only: false, workspace: workspace, environment: token_project.environment)
   end
 
   path '/workspaces/{workspace_uuid}/keyvalues' do 

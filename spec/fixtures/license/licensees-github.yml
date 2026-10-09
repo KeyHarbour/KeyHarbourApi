@@ -1,0 +1,38 @@
+_fixture:
+  model_class: License::Licensee
+
+lic_gh_1:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_github) %>
+  uuid: "m.cote@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_gh_2:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_github) %>
+  uuid: "gabriel.ouellet@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_gh_3:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_github) %>
+  uuid: "mariepier.ross@sample.ca"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_gh_4:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_github) %>
+  uuid: "jessica.pelletier@sample.ca"
+  last_access: <%= Time.current.advance(days: -45).to_date %>
+  status: 1
+lic_gh_5:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_github) %>
+  uuid: "i.tremblay@sample.ca"
+  last_access: <%= Time.current.advance(days: -90).to_date %>
+  status: 2
+lic_gh_6:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_github) %>
+  uuid: "c.dube@sample.ca"
+  last_access: <%= Time.current.advance(days: -90).to_date %>
+  status: 2
+lic_gh_7:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_github) %>
+  uuid: "confluence.admin@sample.ca"
+  last_access: <%= Time.current.advance(days: -90).to_date %>
+  status: 2

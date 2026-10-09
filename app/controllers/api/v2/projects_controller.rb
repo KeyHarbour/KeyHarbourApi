@@ -53,7 +53,7 @@ class Api::V2::ProjectsController < Api::V2::ApplicationController
       if scopable_type == "Organization"
         render json: { message: '001 - This token do not allow you to access the projects organization define by this UUID or the project is not existing' }, status: 404 unless @token.scopable == @organization
       elsif scopable_type == "Project"
-        render json: { message: '002 - This token do not allow you to access the project define by this UUID or the project is not existing' }, status: 404 if @project != @token.scopable
+        render json: { message: '002 - This token do not allow you to access the project define by this UUID or the project is not existing' }, status: 401 if @project != @token.scopable
       else
         render json: { message: '003 - This token do not allow you to access the project define by this UUID or the project is not existing' }, status: 404
       end

@@ -10,9 +10,9 @@ log_projects_show_fivetran_<%=index %>:
 <% end %>
 
 <% 2000.times do |index| %>
-log_projects_show_simplex_nexus_<%=index %>:
+log_projects_show_kh_nexus_<%=index %>:
   serviceable_type: 'Project'
-  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:simplex_nexus) %>
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:kh_nexus) %>
   controller: api/v2/projects
   action: show
   token: <%= ActiveRecord::FixtureSet.identify(:infra_nexus_sbx) %>
@@ -264,7 +264,7 @@ log_key_value_store_destroy_fivetran_<%=index %>:
 <% 52.times do |index| %>
 log_key_value_store_destroy_fivetran_<%=index %>:
   serviceable_type: 'Workspace'
-  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:simplex_ops_wks) %>
+  serviceable_id: <%= ActiveRecord::FixtureSet.identify(:kh_ops_wks) %>
   controller: api/v2/key_value_stores
   action: destroy
   token: <%= ActiveRecord::FixtureSet.identify(:data_org) %>

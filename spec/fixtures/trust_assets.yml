@@ -39,7 +39,7 @@ tas_app_fivetran_ssl:
   format: tls_certificate
   consumer: Azdo
 tas_app_fivetran_ssl_reminder:
-  environment: sandbox_simplex
+  environment: sandbox_kh
   workspace: infra_nexus   
   name: tas_app_fivetran_ssl
   expires_at: <%= Time.current.advance(days: 365).to_fs(:db) %>

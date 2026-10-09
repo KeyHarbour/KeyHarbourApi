@@ -2,11 +2,11 @@ require 'swagger_helper'
 
 RSpec.describe 'Trust Assets', type: :request, openapi_spec: 'v2/openapi.yaml' do
   include_context 'project_token'
-  let(:workspace) { create(:workspace, project: project) }
+  let(:workspace) { create(:workspace, project: my_project) }
   let(:workspace_uuid) { workspace.uuid }
 
   before(:each) do
-    create(:trust_asset, name: "123", workspace: workspace, environment: token.environment)
+    create(:trust_asset, name: "123", workspace: workspace, environment: token_project.environment)
   end
 
   path '/workspaces/{workspace_uuid}/trust_assets' do 

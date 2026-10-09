@@ -1,0 +1,18 @@
+quote_val:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:kh_app_jira_cloud) %>
+  provider_id: <%= ActiveRecord::FixtureSet.identify(:provider_valyantis) %>
+  uuid: vali0001
+  available_on: <%= Time.current.advance(days: -3).to_date %>
+  available_until: <%= Time.current.advance(days: 30).to_date %>
+quote_atl:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:kh_app_jira_cloud) %>
+  provider_id: <%= ActiveRecord::FixtureSet.identify(:provider_atlassian) %>
+  uuid: atl0007
+  available_on: <%= Time.current.advance(days: -1).to_date %>
+  available_until: <%= Time.current.advance(days: 60).to_date %>  
+quote_sof:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:kh_app_jira_cloud) %>
+  provider_id: <%= ActiveRecord::FixtureSet.identify(:provider_softchoice) %>
+  uuid: sc0001000
+  available_on: <%= Time.current.advance(days: -4).to_date %>
+  available_until: <%= Time.current.advance(days: 45).to_date %>  

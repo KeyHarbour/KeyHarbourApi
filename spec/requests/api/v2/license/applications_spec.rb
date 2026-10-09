@@ -2,11 +2,11 @@ require 'swagger_helper'
 
 RSpec.describe 'api/v2/license/applications', type: :request, openapi_spec: 'v2/openapi.yaml' do
   include_context 'license_token'
-  let(:application) { create(:license_application, organization: organization) }
+  let(:application) { create(:license_application, account: account) }
 
   path '/license/applications' do
 
-    get('get all apps for an organization') do
+    get('get all apps for an account') do
       tags 'Applications'
       response '200', 'Apps found' do
         schema type: :array,

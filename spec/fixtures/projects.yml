@@ -44,31 +44,31 @@ access:
   status: 0
   organization: infra
 
-# Simplex Rental Inc. — Cross-org SSO Projects
-simplex_servicenow:
+# kh Rental Inc. — Cross-org SSO Projects
+kh_servicenow:
   name: "ServiceNow (SSO Integration)"
   description: "Cross-organization SSO/SCIM integration for identity and IT service management"
   uuid: 45670000-4000-0000-0000-000000000001
   status: 0
-  organization: simplex_it
+  organization: kh_it
 
-simplex_salesforce:
+kh_salesforce:
   name: "Salesforce (SSO Integration)"
   description: "Cross-organization SSO/SCIM integration for CRM and field operations"
   uuid: 45670000-5000-0000-0000-000000000002
   status: 0
-  organization: simplex_it
+  organization: kh_it
 
-simplex_nexus:
+kh_nexus:
   name: "Sonatype Nexus Onprems"
   description: "Sonatype nexus"
   uuid: 45670000-6000-0000-0000-000000000001
   status: 0
-  organization: simplex_it
+  organization: kh_it
 
-simplex_ops_prj:
+kh_ops_prj:
   name: "Ops"
   description: "Ops project, perfect to keep key/value"
   uuid: 45670000-7000-0000-0000-000000000001
   status: 0
-  organization: simplex_ops
+  organization: kh_ops

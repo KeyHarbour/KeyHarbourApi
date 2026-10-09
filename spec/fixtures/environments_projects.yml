@@ -26,17 +26,17 @@ lab10_montecarlo:
   project: montecarlo
   environment: lab10
 sbx_nexus:
-  project: simplex_nexus
-  environment: sandbox_simplex
+  project: kh_nexus
+  environment: sandbox_kh
 production_nexus:
-  project: simplex_nexus
-  environment: production_simplex
+  project: kh_nexus
+  environment: production_kh
 qa_nexus:
-  project: simplex_nexus
-  environment: qa_simplex
+  project: kh_nexus
+  environment: qa_kh
 sbx_nexus_ops:
-  project: simplex_ops_prj
-  environment: sandbox_simplex_ops
+  project: kh_ops_prj
+  environment: sandbox_kh_ops
 production_nexus_ops:
-  project: simplex_ops_prj
-  environment: production_simplex_ops
+  project: kh_ops_prj
+  environment: production_kh_ops

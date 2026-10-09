@@ -45,7 +45,14 @@ RSpec.describe "Intégration Réelle CLI Go", type: :request do
     it "valide que le binaire communique avec succès avec Rails" do
       environment = environments(:production10)
       workspace = workspaces(:app_fivetran)
-      token = tokens(:data_org).generate_token_for(:statefile)
+      token_organization = TokenOrganization.create(scopable: workspace.project.organization, name: "test_token", expiration: DateTime.now.advance(years: 1), environment: environment)
+      # token_organization.type = "Organization"
+      # token_organization.save
+      # puts token_organization.errors.to_yaml
+      # puts "token_organization: #{token_organization.id}"
+      # puts "token_organization: #{token_organization.type}"
+      token = token_organization.generate_token_for(:statefile)
+      # token = token_organizations(:data_org).generate_token_for(:statefile)
       expected_result = [{"key" => "ws1_test_key", "value" => "ws1_test_value", "expires_at" => nil, "private" => false, "environment" => environment.name}]
 
       env_vars = [

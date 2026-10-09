@@ -1,0 +1,35 @@
+copilot:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_github) %>
+  name: Copilot
+  uuid: 12334
+  unit_cost: 18
+sonarqube:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_github) %>
+  name: Sonarqube
+  uuid: 6789
+  active: false
+  unit_cost: 4.5  
+structure1:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_dev) %>
+  name: Structure for Jira
+  uuid: 090999
+  active: false
+  unit_cost: 3.5 
+structure2:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_prod) %>
+  name: Structure for Jira
+  uuid: 090990
+  active: true
+  unit_cost: 3.5 
+dynamic:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_prod) %>
+  name: Dynamic Forms for Jira
+  uuid: 070007a---111
+  active: false
+  unit_cost: 7.10
+timesheet:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_prod) %>
+  name: Timesheet Tracking for Jira
+  uuid: 070008ba---111
+  active: true
+  unit_cost: 8

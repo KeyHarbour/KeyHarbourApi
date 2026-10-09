@@ -1,0 +1,48 @@
+_fixture:
+  model_class: License::Licensee
+
+lic_jira_1:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_dev) %>
+  uuid: "m.cote@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_jira_2:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_dev) %>
+  uuid: "gabriel.ouellet@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_jira_3:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_dev) %>
+  uuid: "mariepier.ross@sample.ca"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_jira_4:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_prod) %>
+  uuid: "mariepier.ross@sample.ca"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_jira_5:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_dev) %>
+  uuid: "jessica.pelletier@sample.ca"
+  last_access: <%= Time.current.advance(days: -45).to_date %>
+  status: 1
+lic_jira_6:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_prod) %>
+  uuid: "jessica.pelletier@sample.ca"
+  last_access: <%= Time.current.advance(days: -45).to_date %>
+  status: 1
+lic_jira_7:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_prod) %>
+  uuid: "i.tremblay@sample.ca"
+  last_access: <%= Time.current.advance(days: -90).to_date %>
+  status: 2
+lic_jira_8:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_prod) %>
+  uuid: "c.dube@sample.ca"
+  last_access: <%= Time.current.advance(days: -90).to_date %>
+  status: 2
+lic_jira_9:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_prod) %>
+  uuid: "confluence.admin@sample.ca"
+  last_access: <%= Time.current.advance(days: -90).to_date %>
+  status: 2

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_12_215533) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_09_150105) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -219,7 +219,20 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_12_215533) do
     t.index ["workspace_id"], name: "index_key_value_stores_on_workspace_id"
   end
 
+  create_table "license_add_ons", force: :cascade do |t|
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.bigint "instance_id", null: false
+    t.string "name"
+    t.decimal "unit_cost", precision: 10, scale: 4
+    t.datetime "updated_at", null: false
+    t.string "uuid"
+    t.index ["instance_id"], name: "index_license_add_ons_on_instance_id"
+  end
+
   create_table "license_applications", force: :cascade do |t|
+    t.bigint "account_id"
     t.integer "alert_renewal_1", default: 90
     t.integer "alert_renewal_2", default: 30
     t.decimal "alert_seats_1", precision: 10, scale: 2, default: "0.85"
@@ -228,7 +241,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_12_215533) do
     t.text "data"
     t.integer "licencess_allowed"
     t.string "name"
-    t.bigint "organization_id", null: false
     t.string "owner"
     t.date "renewal_date"
     t.integer "seats"
@@ -239,8 +251,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_12_215533) do
     t.datetime "updated_at", null: false
     t.string "uuid"
     t.string "vendor"
-    t.index ["organization_id"], name: "index_license_applications_on_organization_id"
-    t.index ["uuid", "organization_id"], name: "index_license_applications_on_uuid_and_organization_id", unique: true
+    t.index ["account_id"], name: "index_license_applications_on_account_id"
   end
 
   create_table "license_instances", force: :cascade do |t|
@@ -258,6 +269,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_12_215533) do
     t.integer "seats"
     t.string "short_name"
     t.integer "status", default: 0, null: false
+    t.string "tier"
     t.decimal "unit_cost", precision: 10, scale: 2
     t.datetime "updated_at", null: false
     t.string "uuid"
@@ -276,16 +288,74 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_12_215533) do
     t.index ["instance_id"], name: "index_license_licensees_on_instance_id"
   end
 
+  create_table "license_providers", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.datetime "updated_at", null: false
+    t.string "uuid"
+    t.index ["account_id"], name: "index_license_providers_on_account_id"
+  end
+
+  create_table "license_quote_add_ons", force: :cascade do |t|
+    t.bigint "add_on_id", null: false
+    t.decimal "amount", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.bigint "quote_instance_id", null: false
+    t.integer "seats"
+    t.boolean "unused", default: false
+    t.datetime "updated_at", null: false
+    t.index ["add_on_id"], name: "index_license_quote_add_ons_on_add_on_id"
+    t.index ["quote_instance_id"], name: "index_license_quote_add_ons_on_quote_instance_id"
+  end
+
+  create_table "license_quote_applications", force: :cascade do |t|
+    t.decimal "amount", precision: 10, scale: 2
+    t.bigint "application_id", null: false
+    t.datetime "created_at", null: false
+    t.bigint "quote_id", null: false
+    t.integer "seats"
+    t.datetime "updated_at", null: false
+    t.index ["application_id"], name: "index_license_quote_applications_on_application_id"
+    t.index ["quote_id"], name: "index_license_quote_applications_on_quote_id"
+  end
+
+  create_table "license_quote_instances", force: :cascade do |t|
+    t.decimal "amount", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.bigint "instance_id", null: false
+    t.bigint "quote_application_id", null: false
+    t.integer "seats"
+    t.boolean "unused", default: false
+    t.datetime "updated_at", null: false
+    t.index ["instance_id"], name: "index_license_quote_instances_on_instance_id"
+    t.index ["quote_application_id"], name: "index_license_quote_instances_on_quote_application_id"
+  end
+
+  create_table "license_quotes", force: :cascade do |t|
+    t.bigint "application_id", null: false
+    t.date "approved_at"
+    t.date "available_on"
+    t.date "available_until"
+    t.datetime "created_at", null: false
+    t.bigint "provider_id", null: false
+    t.string "status"
+    t.datetime "updated_at", null: false
+    t.string "uuid"
+    t.index ["application_id"], name: "index_license_quotes_on_application_id"
+    t.index ["provider_id"], name: "index_license_quotes_on_provider_id"
+  end
+
   create_table "license_team_members", force: :cascade do |t|
+    t.bigint "account_id"
     t.datetime "created_at", null: false
     t.bigint "manager_id"
-    t.bigint "organization_id", null: false
     t.string "revision"
     t.string "role"
     t.datetime "updated_at", null: false
     t.string "uuid", null: false
+    t.index ["account_id"], name: "index_license_team_members_on_account_id"
     t.index ["manager_id"], name: "index_license_team_members_on_manager_id"
-    t.index ["organization_id"], name: "index_license_team_members_on_organization_id"
   end
 
   create_table "license_uploads", force: :cascade do |t|
@@ -492,9 +562,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_12_215533) do
     t.string "name"
     t.bigint "scopable_id", null: false
     t.string "scopable_type", null: false
+    t.string "type"
     t.datetime "updated_at", null: false
     t.index ["environment_id"], name: "index_tokens_on_environment_id"
     t.index ["scopable_type", "scopable_id"], name: "index_tokens_on_scopable"
+    t.index ["type"], name: "index_tokens_on_type"
   end
 
   create_table "trust_assets", force: :cascade do |t|
@@ -644,11 +716,21 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_12_215533) do
   add_foreign_key "invoices", "subscriptions"
   add_foreign_key "key_value_stores", "environments"
   add_foreign_key "key_value_stores", "workspaces"
-  add_foreign_key "license_applications", "organizations"
+  add_foreign_key "license_add_ons", "license_instances", column: "instance_id"
+  add_foreign_key "license_applications", "accounts"
   add_foreign_key "license_instances", "license_applications", column: "application_id"
   add_foreign_key "license_licensees", "license_instances", column: "instance_id"
+  add_foreign_key "license_providers", "accounts"
+  add_foreign_key "license_quote_add_ons", "license_add_ons", column: "add_on_id"
+  add_foreign_key "license_quote_add_ons", "license_quote_instances", column: "quote_instance_id"
+  add_foreign_key "license_quote_applications", "license_applications", column: "application_id"
+  add_foreign_key "license_quote_applications", "license_quotes", column: "quote_id"
+  add_foreign_key "license_quote_instances", "license_instances", column: "instance_id"
+  add_foreign_key "license_quote_instances", "license_quote_applications", column: "quote_application_id"
+  add_foreign_key "license_quotes", "license_applications", column: "application_id"
+  add_foreign_key "license_quotes", "license_providers", column: "provider_id"
+  add_foreign_key "license_team_members", "accounts"
   add_foreign_key "license_team_members", "license_team_members", column: "manager_id"
-  add_foreign_key "license_team_members", "organizations"
   add_foreign_key "license_uploads", "license_instances", column: "instance_id"
   add_foreign_key "organizations", "accounts"
   add_foreign_key "projects", "organizations"

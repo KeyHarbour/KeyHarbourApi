@@ -2,9 +2,9 @@ require 'swagger_helper'
 
 RSpec.describe 'api/v2/statefile', type: :request, openapi_spec: 'v2/openapi.yaml' do
   include_context 'project_token'
-  let(:workspace) {create(:workspace, project: project)}
-  let(:environment_obj) { create(:environment, organization: project.organization) }
-  let(:project_uuid) { project.uuid } 
+  let(:workspace) {create(:workspace, project: my_project)}
+  let(:environment_obj) { create(:environment, organization: my_project.organization) }
+  let(:project_uuid) { my_project.uuid } 
   let(:workspace_uuid) { workspace.uuid }
 
   before(:each) do

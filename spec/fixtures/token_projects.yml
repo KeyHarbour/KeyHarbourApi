@@ -1,0 +1,14 @@
+data_fivetran_project:
+  environment_id: <%= ActiveRecord::FixtureSet.identify(:production10) %>
+  expiration: <%= Time.current.advance(days: 15).to_fs(:db) %>
+  name: "Data Project FiveTran token"
+  scopable_id: <%= ActiveRecord::FixtureSet.identify(:fivetran) %>
+  scopable_type: "Project"  
+  type:  "TokenProject" 
+all_nexus_sbx:
+  environment_id: <%= ActiveRecord::FixtureSet.identify(:sandbox_kh) %>
+  expiration: <%= Time.current.advance(days: 120).to_fs(:db) %>
+  name: "All SBX workspace"
+  scopable_id: <%= ActiveRecord::FixtureSet.identify(:nexus) %>
+  scopable_type: "Project"
+  type:  "TokenProject" 

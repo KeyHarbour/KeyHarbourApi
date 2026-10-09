@@ -29,7 +29,8 @@ group :test do
   gem 'database_cleaner'
   gem 'simplecov', require: false
 end
-gem "key_harbour_core", git: "https://github.com/KeyHarbour/KeyHarbourCore.git"
+gem "key_harbour_core", path: "../KeyHarbourCore" if ENV['IKIGAILAB']
+gem "key_harbour_core", git: "https://github.com/KeyHarbour/KeyHarbourCore.git" unless ENV['IKIGAILAB']
 gem "rails-i18n"
 gem 'jwt'
 gem 'openssl'

@@ -7,10 +7,11 @@ development:
   primary:
     <<: *default
     database: <%= ENV.fetch("DATABASE_NAME") %>_development
+    migrations_paths: <%= Gem.loaded_specs['key_harbour_core'].full_gem_path %>/db/migrate
   logs:
     <<: *default
     database: <%= ENV.fetch("DATABASE_NAME") %>_logs_development
-    migrations_paths: ../../db/logs_migrate
+    migrations_paths: <%= Gem.loaded_specs['key_harbour_core'].full_gem_path %>/db/logs_migrate
   queue:
     <<: *default
     database: <%= ENV.fetch("DATABASE_NAME") %>_queue_development

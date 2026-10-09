@@ -3,9 +3,7 @@ class Api::V2::License::ApplicationsController < Api::V2::License::ApplicationCo
   before_action :log_api_query
 
   def index
-    logger.debug organization.apps_json
-    logger.debug "Organization UUID: #{params[:organization_uuid]}".red
-    render json: organization.apps_json, status: :ok
+    render json: @account.apps_json, status: :ok
   end
 
   def show
@@ -27,7 +25,7 @@ class Api::V2::License::ApplicationsController < Api::V2::License::ApplicationCo
   end
 
   def create
-    @application = organization.applications.new(item_params)
+    @application = @account.applications.new(item_params)
     if @application.save
       render json: { status: "created", uuid: @application.uuid }, status: :created
     else
@@ -54,15 +52,5 @@ class Api::V2::License::ApplicationsController < Api::V2::License::ApplicationCo
 
   def item_params
     params.expect(application: [ :name, :short_name, :owner, :renewal_date, :vendor, :tier, :seats, :status, :unit_cost ])
-  end
-
-  def set_application
-    return unless params[:uuid].present?
-    
-    @application = organization.applications.find_by(uuid: params[:uuid])
-
-    if @application.nil?
-      render json: { message: 'This token do not allow you to access the application define by this UUID or the application is not existing' }, status: 404
-    end
   end
 end

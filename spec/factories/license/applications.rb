@@ -9,6 +9,6 @@ FactoryBot.define do
     seats { 1 }
     status { 0 }
     uuid { Faker::Internet.uuid }
-    association :organization
+    association :account
   end
 end

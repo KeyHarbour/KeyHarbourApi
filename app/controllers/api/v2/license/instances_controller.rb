@@ -54,24 +54,13 @@ class Api::V2::License::InstancesController < Api::V2::License::ApplicationContr
 
   def set_instance
     return unless params[:uuid].present?
-    if @application.nil?
-      @instance = License::Instance.find_by(uuid: params[:uuid])
-    else
-      @instance = @application.instances.find_by(uuid: params[:uuid])
-    end
 
-    if @instance.nil?
-      render json: { message: 'This token do not allow you to access the instance define by this UUID or the instance is not existing' }, status: 404
-    end
+    check_instance(params[:uuid])
   end
 
   def set_application
     return unless params[:application_uuid].present?
-    
-    @application = organization.applications.find_by(uuid: params[:application_uuid])
 
-    if @application.nil?
-      render json: { message: 'This token do not allow you to access the application define by this UUID or the application is not existing' }, status: 404
-    end
+    check_application(params[:application_uuid])
   end
 end

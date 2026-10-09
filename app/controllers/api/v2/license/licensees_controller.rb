@@ -68,10 +68,6 @@ class Api::V2::License::LicenseesController < Api::V2::License::ApplicationContr
   def set_instance
     return unless params[:instance_uuid].present?
     
-    @instance = @organization.app_instances.find_by(uuid: params[:instance_uuid])
-
-    if @instance.nil?
-      render json: { message: 'This token do not allow you to access the instance define by this UUID or the instance is not existing' }, status: 404
-    end
+    check_instance(params[:instance_uuid])
   end
 end
