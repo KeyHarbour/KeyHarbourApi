@@ -1,0 +1,33 @@
+quote_val_ins_dev:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_dev) %>
+  quote_application_id: <%= ActiveRecord::FixtureSet.identify(:quote_val_app) %>
+  amount: 50
+  seats: 10
+quote_val_ins_prd:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_prod) %>
+  quote_application_id: <%= ActiveRecord::FixtureSet.identify(:quote_val_app) %>
+  amount: 50  
+  seats: 10
+
+quote_atl_ins_dev:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_dev) %>
+  quote_application_id: <%= ActiveRecord::FixtureSet.identify(:quote_atl_app) %>
+  amount: 50
+  seats: 5
+quote_atl_ins_prd:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_prod) %>
+  quote_application_id: <%= ActiveRecord::FixtureSet.identify(:quote_atl_app) %>
+  amount: 50  
+  seats: 5
+
+quote_sof_ins_dev:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_dev) %>
+  quote_application_id: <%= ActiveRecord::FixtureSet.identify(:quote_sof_app) %>
+  amount: 35
+  seats: 5
+  unused: true
+quote_sof_ins_prd:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_jira_prod) %>
+  quote_application_id: <%= ActiveRecord::FixtureSet.identify(:quote_sof_app) %>
+  amount: 125
+  seats: 5 

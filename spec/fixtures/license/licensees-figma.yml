@@ -1,0 +1,48 @@
+_fixture:
+  model_class: License::Licensee
+
+lic_figma_1:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_figma_prod) %>
+  uuid: "e.beauchamp@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_figma_2:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_figma_prod) %>
+  uuid: "valerie.paquin@sample.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_figma_3:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_figma_prod) %>
+  uuid: "jira.admin@sample.ca"
+  last_access: <%= Time.current.advance(days: -15).to_date %>
+  status: 0
+lic_figma_4:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_figma_prod) %>
+  uuid: "m365.admin@sample.ca"
+  last_access: <%= Time.current.advance(days: -45).to_date %>
+  status: 1
+lic_figma_5:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_figma_prod) %>
+  uuid: "pierre.gagnon@sample.ca"
+  last_access: <%= Time.current.advance(days: -45).to_date %>
+  status: 1
+lic_figma_6:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_figma_prod) %>
+  uuid: "christian.thibault@sample.ca"
+  last_access: <%= Time.current.advance(days: -45).to_date %>
+  status: 1
+lic_figma_7:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_figma_prod) %>
+  uuid: "eric.nadeau@sample.ca"
+  last_access: <%= Time.current.advance(days: -45).to_date %>
+  status: 1
+lic_figma_8:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_figma_prod) %>
+  uuid: "hr.generalist2@sample.ca"
+  last_access: <%= Time.current.advance(days: -45).to_date %>
+  status: 1
+lic_figma_9:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_figma_prod) %>
+  uuid: "design.manager@sample.ca"
+  last_access: <%= Time.current.advance(days: -45).to_date %>
+  status: 1

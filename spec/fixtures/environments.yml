@@ -70,23 +70,23 @@ sandbox03:
   name: Sandbox
   organization: top_floor
   active: true 
-sandbox_simplex:
+sandbox_kh:
   name: Sandbox
-  organization: simplex_it
+  organization: kh_it
   active: true 
-production_simplex:
+production_kh:
   name: Production
-  organization: simplex_it
+  organization: kh_it
   active: true 
-qa_simplex:
+qa_kh:
   name: QA
-  organization: simplex_it
+  organization: kh_it
   active: true 
-sandbox_simplex_ops:
+sandbox_kh_ops:
   name: Sandbox
-  organization: simplex_ops
+  organization: kh_ops
   active: true 
-production_simplex_ops:
+production_kh_ops:
   name: Production
-  organization: simplex_ops
+  organization: kh_ops
   active: true

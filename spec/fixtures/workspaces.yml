@@ -40,27 +40,27 @@ app_security:
   uuid: 64dfd55b-ad5a-47d7-9a94-dc3690ccadbf
   description: "Security check"
   project: security
-simplex_servicenow:
+kh_servicenow:
   name: "Service Now"
   status: 0
   uuid: 64dfd55b-2222-47d7-9a94-dc3690ccadbf
   description: "Infrastructure"
-  project: simplex_servicenow
+  project: kh_servicenow
 infra_nexus:
   name: "Infra Nexus"
   status: 0
   uuid: 64dfd55b-0000-47d7-9a94-dc3690ccadbf
   description: "Infrastructure"
-  project: simplex_nexus
+  project: kh_nexus
 config_nexus:
   name: "Config Nexus"
   status: 0
   uuid: 64dfd55b-1111-47d7-9a94-dc3690ccadbf
   description: "Software configuration of Nexus"
-  project: simplex_nexus
-simplex_ops_wks:
+  project: kh_nexus
+kh_ops_wks:
   name: "Ops key/Value"
   status: 0
   uuid: 64dfd55b-3333-47d7-9a94-dc3690ccadbf
   description: "Ops KeyValue"
-  project: simplex_ops_prj
+  project: kh_ops_prj

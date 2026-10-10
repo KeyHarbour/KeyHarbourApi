@@ -3,12 +3,12 @@ class Api::V2::License::TeamMembersController < Api::V2::License::ApplicationCon
   before_action :log_api_query
 
   def index
-    render json: @organization.app_team_members.map { |member| { uuid: member.uuid, manager_uuid: member.manager_uuid } }, status: :ok
+    render json: @account.app_team_members.map { |member| { uuid: member.uuid, manager_uuid: member.manager_uuid } }, status: :ok
   end
 
   def create
-    manager = @organization.app_team_members.first_or_create(uuid: item_params[:manager_uuid]) if item_params[:manager_uuid].present?
-    @team_member = @organization.app_team_members.new(uuid: item_params[:uuid], manager: manager)
+    manager = @account.app_team_members.first_or_create(uuid: item_params[:manager_uuid]) if item_params[:manager_uuid].present?
+    @team_member = @account.app_team_members.new(uuid: item_params[:uuid], manager: manager)
     if @team_member.save
       render json: { status: "created", uuid: @team_member.uuid }, status: :created
     else
@@ -51,7 +51,7 @@ class Api::V2::License::TeamMembersController < Api::V2::License::ApplicationCon
   def set_team_member
     return unless params[:uuid].present?
 
-    @team_member = @organization.app_team_members.find_by(uuid: params[:uuid])
+    @team_member = @account.app_team_members.find_by(uuid: params[:uuid])
 
     if @team_member.nil?
       render json: { message: 'This token do not allow you to access the team member define by this UUID or the team member is not existing' }, status: 404

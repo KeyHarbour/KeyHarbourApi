@@ -1,0 +1,14 @@
+data_org:
+  environment_id: <%= ActiveRecord::FixtureSet.identify(:production10) %>
+  expiration: <%= Time.current.advance(days: 7).to_fs(:db) %>
+  name: "Data Organization token"
+  scopable_id: <%= ActiveRecord::FixtureSet.identify(:data) %>
+  scopable_type: "Organization"
+  type: "TokenOrganization" 
+infra_org:
+  environment_id: <%= ActiveRecord::FixtureSet.identify(:production) %>
+  expiration: <%= Time.current.advance(days: 7).to_fs(:db) %>
+  name: "Data Organization token"
+  scopable_id: <%= ActiveRecord::FixtureSet.identify(:infra) %>
+  scopable_type: "Organization"
+  type: "TokenOrganization" 

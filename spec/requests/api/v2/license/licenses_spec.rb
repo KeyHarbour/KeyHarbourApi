@@ -1,7 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'Application', type: :request, openapi_spec: 'v2/openapi.yaml' do
-  let(:token) {create(:token, :without_environment)}
+  let(:token) {create(:token_account)}
 
   path '/license/auth' do
 

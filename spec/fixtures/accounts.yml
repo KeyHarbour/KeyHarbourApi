@@ -8,6 +8,6 @@ dinner:
   name: "Dinner"
   billing_contact: "dinner@monexample.com"
   status: 1
-simplex:
-  name: "Simplex Rental Inc."
-  billing_contact: "billing@simplex-rental.com"
+demokh:
+  name: "Demo KH Inc."
+  billing_contact: "billing@demo-kh.com"

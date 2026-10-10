@@ -1,0 +1,15 @@
+quote_val_app:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:kh_app_jira_cloud) %>
+  quote_id: <%= ActiveRecord::FixtureSet.identify(:quote_val) %>
+  amount: 250
+  seats: 10
+quote_atl_app:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:kh_app_jira_cloud) %>
+  quote_id: <%= ActiveRecord::FixtureSet.identify(:quote_atl) %>
+  amount: 150
+  seats: 5
+quote_sof_app:
+  application_id: <%= ActiveRecord::FixtureSet.identify(:kh_app_jira_cloud) %>
+  quote_id: <%= ActiveRecord::FixtureSet.identify(:quote_sof) %>
+  amount: 0 
+  seats: 5   

@@ -1,0 +1,393 @@
+_fixture:
+  model_class: License::Licensee
+
+# ── Okta licensees ────────────────────────────────────────────────────────────
+lic_okta_mc_lessard:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_okta) %>
+  uuid: "mc.lessard@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_pierre_gagnon:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_okta) %>
+  uuid: "pierre.gagnon@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_f_lapointe:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_okta) %>
+  uuid: "f.lapointe@sample.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_okta_i_tremblay:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_okta) %>
+  uuid: "i.tremblay@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_m_cote:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_okta) %>
+  uuid: "m.cote@sample.ca"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_okta_c_dube:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_okta) %>
+  uuid: "c.dube@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_j_roy:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_okta) %>
+  uuid: "j.roy@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_e_beauchamp:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_okta) %>
+  uuid: "e.beauchamp@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_okta_depot_mtl:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_okta) %>
+  uuid: "ops.montreal@sample.ca"
+  last_access: <%= Time.current.advance(days: -7).to_date %>
+  status: 0
+lic_okta_depot_qc:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_okta) %>
+  uuid: "ops.quebec@sample.ca"
+  last_access: <%= Time.current.advance(days: -14).to_date %>
+  status: 1
+
+
+# ── Samsara — vehicle fleet ───────────────────────────────────────────────────
+lic_sam_truck_mtl_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_samsara_vehicles) %>
+  uuid: "VEH-MTL-001"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sam_truck_mtl_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_samsara_vehicles) %>
+  uuid: "VEH-MTL-002"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sam_truck_qc_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_samsara_vehicles) %>
+  uuid: "VEH-QC-001"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_sam_van_laval_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_samsara_vehicles) %>
+  uuid: "VAN-LAV-001"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sam_decommissioned:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_samsara_vehicles) %>
+  uuid: "VEH-MTL-OLD-047"
+  last_access: <%= Time.current.advance(days: -180).to_date %>
+  status: 2
+# Samsara — equipment assets
+lic_sam_scaffold_a:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_samsara_equipment) %>
+  uuid: "EQP-SCAFFOLD-A001"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_sam_excavator_01:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_samsara_equipment) %>
+  uuid: "EQP-EXCAV-001"
+  last_access: <%= Time.current.advance(days: -5).to_date %>
+  status: 0
+lic_sam_generator_01:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_samsara_equipment) %>
+  uuid: "EQP-GEN-001"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+
+# ── ServiceNow FSM — field technicians ───────────────────────────────────────
+lic_snow_tech_morin:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_servicenow) %>
+  uuid: "alexandre.morin@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_snow_tech_ouellet:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_servicenow) %>
+  uuid: "gabriel.ouellet@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_snow_tech_ross:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_servicenow) %>
+  uuid: "mariepier.ross@sample.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_snow_tech_bergeron:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_servicenow) %>
+  uuid: "samuel.bergeron@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_snow_tech_pelletier:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_servicenow) %>
+  uuid: "jessica.pelletier@sample.ca"
+  last_access: <%= Time.current.advance(days: -4).to_date %>
+  status: 0
+lic_snow_tech_inactive:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_servicenow) %>
+  uuid: "ex.employee.2024@sample.ca"
+  last_access: <%= Time.current.advance(days: -200).to_date %>
+  status: 1
+
+# ── Salesforce — sales team ───────────────────────────────────────────────────
+lic_sf_c_dube:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_salesforce) %>
+  uuid: "c.dube@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sf_pierre_gagnon:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_salesforce) %>
+  uuid: "pierre.gagnon@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sf_rep_nadeau:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_salesforce) %>
+  uuid: "eric.nadeau@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sf_rep_paquin:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_salesforce) %>
+  uuid: "valerie.paquin@sample.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_sf_rep_thibault:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_salesforce) %>
+  uuid: "christian.thibault@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_sf_rep_departed:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_salesforce) %>
+  uuid: "departed.sales.rep@sample.ca"
+  last_access: <%= Time.current.advance(days: -120).to_date %>
+  status: 2
+
+# ── Workday HCM — HR and payroll users ───────────────────────────────────────
+lic_wd_i_tremblay:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_workday) %>
+  uuid: "EMP-10001"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_wd_pierre_gagnon:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_workday) %>
+  uuid: "EMP-10002"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_wd_hr_generalist_1:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_workday) %>
+  uuid: "EMP-10045"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_wd_hr_generalist_2:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_workday) %>
+  uuid: "EMP-10046"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_wd_payroll_specialist:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_workday) %>
+  uuid: "EMP-10050"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+
+# ── NetSuite ERP ──────────────────────────────────────────────────────────────
+lic_ns_pierre_gagnon:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_netsuite_fin) %>
+  uuid: "pierre.gagnon@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_ns_controller:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_netsuite_fin) %>
+  uuid: "sophie.cloutier@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_ns_ap_specialist:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_netsuite_fin) %>
+  uuid: "ap.specialist@sample.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_ns_depot_mtl_wms:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_netsuite_wms) %>
+  uuid: "depot.mtl.manager@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_ns_depot_qc_wms:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_netsuite_wms) %>
+  uuid: "depot.qc.manager@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+
+# ── Slack — High utilization (340/350 seats) ─────────────────────────────────
+lic_slack_mc_lessard:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_slack_prod) %>
+  uuid: "mc.lessard@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_c_dube:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_slack_prod) %>
+  uuid: "c.dube@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_pierre_gagnon:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_slack_prod) %>
+  uuid: "pierre.gagnon@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_i_tremblay:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_slack_prod) %>
+  uuid: "i.tremblay@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_m_cote:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_slack_prod) %>
+  uuid: "m.cote@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_f_lapointe:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_slack_prod) %>
+  uuid: "f.lapointe@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_e_beauchamp:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_slack_prod) %>
+  uuid: "e.beauchamp@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_slack_j_roy:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_slack_prod) %>
+  uuid: "j.roy@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+# Sample Slack users showing varied activity and inactive accounts
+lic_slack_user_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_slack_prod) %>
+  uuid: "slack.user001@sample.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_slack_user_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_slack_prod) %>
+  uuid: "slack.user002@sample.ca"
+  last_access: <%= Time.current.advance(days: -15).to_date %>
+  status: 0
+lic_slack_user_003:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_slack_prod) %>
+  uuid: "slack.user003@sample.ca"
+  last_access: <%= Time.current.advance(days: -60).to_date %>
+  status: 1
+
+# ── Microsoft 365 — Very high utilization (490/500 seats) ────────────────────
+lic_m365_all_org_users:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_m365_prod) %>
+  uuid: "all-users@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_m365_user_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_m365_prod) %>
+  uuid: "m365.user001@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_m365_user_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_m365_prod) %>
+  uuid: "m365.user002@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+lic_m365_user_inactive_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_m365_prod) %>
+  uuid: "m365.inactive001@sample.ca"
+  last_access: <%= Time.current.advance(days: -90).to_date %>
+  status: 1
+lic_m365_user_inactive_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_m365_prod) %>
+  uuid: "m365.inactive002@sample.ca"
+  last_access: <%= Time.current.advance(days: -120).to_date %>
+  status: 1
+
+# ── Datadog — Overdue renewal, production critical ───────────────────────────
+lic_datadog_prod:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_datadog_prod) %>
+  uuid: "datadog-monitoring@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+
+# ── 1Password — Very high utilization (195/200 seats), 97.5% capacity ─────────
+lic_1password_admin:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_1password_prod) %>
+  uuid: "emp00001@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_1password_user_100:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_1password_prod) %>
+  uuid: "emp00100@sample.ca"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_1password_user_195:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_1password_prod) %>
+  uuid: "emp00195@sample.ca"
+  last_access: <%= Time.current.advance(days: -5).to_date %>
+  status: 0
+
+# ── Notion — Low utilization (3 active users) ─────────────────────────────────
+lic_notion_doc_owner:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_notion_prod) %>
+  uuid: "i.tremblay@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_notion_eng_lead:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_notion_prod) %>
+  uuid: "e.beauchamp@sample.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_notion_product:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_notion_prod) %>
+  uuid: "c.dube@sample.ca"
+  last_access: <%= Time.current.advance(days: -5).to_date %>
+  status: 0
+
+# ── Confluence Dev — Growing adoption (12/15 seats) ────────────────────────────
+lic_confluence_dev_author_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_confluence_dev) %>
+  uuid: "doc.author.001@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_confluence_dev_author_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_confluence_dev) %>
+  uuid: "doc.author.002@sample.ca"
+  last_access: <%= Time.current.advance(days: -3).to_date %>
+  status: 0
+lic_confluence_dev_author_003:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_confluence_dev) %>
+  uuid: "doc.author.003@sample.ca"
+  last_access: <%= Time.current.advance(days: -7).to_date %>
+  status: 0
+
+# ── Confluence Prod — High utilization (14/15 seats) ──────────────────────────
+lic_confluence_prod_user_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_confluence_prod) %>
+  uuid: "wiki.user001@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_confluence_prod_user_002:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_confluence_prod) %>
+  uuid: "wiki.user002@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_confluence_prod_user_003:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_confluence_prod) %>
+  uuid: "wiki.user003@sample.ca"
+  last_access: <%= Time.current.advance(days: -1).to_date %>
+  status: 0
+
+# ── Copilot Pro — Field Operations (130/150 seats, 87% utilization) ────────────
+lic_copilot_field_user_001:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_copilot_pro_fleet) %>
+  uuid: "field.user001@sample.ca"
+  last_access: <%= Time.current.to_date %>
+  status: 0
+lic_copilot_field_user_050:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_copilot_pro_fleet) %>
+  uuid: "field.user050@sample.ca"
+  last_access: <%= Time.current.advance(days: -2).to_date %>
+  status: 0
+lic_copilot_field_user_130:
+  instance_id: <%= ActiveRecord::FixtureSet.identify(:kh_inst_copilot_pro_fleet) %>
+  uuid: "field.user130@sample.ca"
+  last_access: <%= Time.current.advance(days: -4).to_date %>
+  status: 0

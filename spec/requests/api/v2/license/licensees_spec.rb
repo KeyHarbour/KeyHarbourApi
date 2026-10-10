@@ -2,7 +2,7 @@ require 'swagger_helper'
 
 RSpec.describe 'api/v2/license/licensees', type: :request, openapi_spec: 'v2/openapi.yaml' do
   include_context 'license_token'
-  let(:application) { create(:license_application, organization: organization) }
+  let(:application) { create(:license_application, account: account) }
   let(:instance) { create(:license_instance, application: application) }
   let(:licensee) { create(:license_licensee, instance: instance) }
   let(:instance_uuid) { instance.uuid }

@@ -1,0 +1,27 @@
+_fixture:
+  model_class: License::Provider
+
+provider_microsoft:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  name: Microsoft
+  uuid: 5imp1app-0001-4000-8000-a00000000001
+
+provider_softchoice:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  name: Softchoice
+  uuid: softchoice-mtl
+
+provider_redhat:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  name: Red Hat
+  uuid: redhat
+
+provider_atlassian:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  name: Atlassian
+  uuid: atlassian
+
+provider_valyantis:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  name: Valyantis
+  uuid: valyantis0008

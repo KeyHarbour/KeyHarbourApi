@@ -66,7 +66,3 @@ building_technical_writer:
   account: building
   user: technical_writer  
   role: admin
-simplex_chief_executive:
-  account: simplex
-  user: simplex_it_director
-  role: owner  

@@ -1,37 +1,37 @@
-# Simplex IT & Cloud Engineering team
-simplex_it_director_in_it_team:
-  team: simplex_it_team
-  user: simplex_it_director
+# kh IT & Cloud Engineering team
+kh_it_director_in_it_team:
+  team: kh_it_team
+  user: kh_it_director
   role: 0
-simplex_devops_in_it_team:
-  team: simplex_it_team
-  user: simplex_devops
+kh_devops_in_it_team:
+  team: kh_it_team
+  user: kh_devops
   role: 1
-simplex_it_admin_in_it_team:
-  team: simplex_it_team
-  user: simplex_it_admin
+kh_it_admin_in_it_team:
+  team: kh_it_team
+  user: kh_it_admin
   role: 1
 
-# Simplex Field Operations team
-simplex_ops_manager_in_ops_team:
-  team: simplex_ops_team
-  user: simplex_ops_manager
+# kh Field Operations team
+kh_ops_manager_in_ops_team:
+  team: kh_ops_team
+  user: kh_ops_manager
   role: 0
-simplex_fleet_manager_in_ops_team:
-  team: simplex_ops_team
-  user: simplex_fleet_manager
+kh_fleet_manager_in_ops_team:
+  team: kh_ops_team
+  user: kh_fleet_manager
   role: 1
 
-# Simplex Finance & Corporate Systems team
-simplex_cfo_in_finance_team:
-  team: simplex_finance_team
-  user: simplex_cfo
+# kh Finance & Corporate Systems team
+kh_cfo_in_finance_team:
+  team: kh_finance_team
+  user: kh_cfo
   role: 0
-simplex_hr_director_in_finance_team:
-  team: simplex_finance_team
-  user: simplex_hr_director
+kh_hr_director_in_finance_team:
+  team: kh_finance_team
+  user: kh_hr_director
   role: 1
-simplex_sales_director_in_finance_team:
-  team: simplex_finance_team
-  user: simplex_sales_director
+kh_sales_director_in_finance_team:
+  team: kh_finance_team
+  user: kh_sales_director
   role: 1

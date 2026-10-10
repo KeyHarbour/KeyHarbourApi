@@ -96,45 +96,45 @@ technical_writer:
   email_address: lucie.lambert@example.ca
   password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
 
-# Simplex Rental Inc. — IT & Cloud Engineering Team
-simplex_it_director:
+# kh Rental Inc. — IT & Cloud Engineering Team
+kh_it_director:
   name: "Marcus Johnson"
   email_address: marcus.johnson@example.ca
   password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
 
-simplex_devops:
+kh_devops:
   name: "Emily Chen"
   email_address: emily.chen@example.ca
   password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
 
-simplex_it_admin:
+kh_it_admin:
   name: "James Wilson"
   email_address: james.wilson@example.ca
   password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
 
-# Simplex Rental Inc. — Field Operations Team
-simplex_ops_manager:
+# kh Rental Inc. — Field Operations Team
+kh_ops_manager:
   name: "Rebecca Torres"
   email_address: rebecca.torres@example.ca
   password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
 
-simplex_fleet_manager:
+kh_fleet_manager:
   name: "David Park"
   email_address: david.park@example.ca
   password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
 
-# Simplex Rental Inc. — Finance & Corporate Systems Team
-simplex_cfo:
+# kh Rental Inc. — Finance & Corporate Systems Team
+kh_cfo:
   name: "Patricia Martinez"
   email_address: patricia.martinez@example.ca
   password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
 
-simplex_hr_director:
+kh_hr_director:
   name: "Linda Anderson"
   email_address: linda.anderson@example.ca
   password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.
 
-simplex_sales_director:
+kh_sales_director:
   name: "Richard Brown"
   email_address: richard.brown@example.ca
   password_digest: $2a$12$by2N08ziy6njj2xXFBElTe.TH.jFDNWbOr6QjidV/UIECRJ1zr.x.

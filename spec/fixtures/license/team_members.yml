@@ -1,0 +1,199 @@
+_fixture:
+  model_class: License::TeamMember
+
+kh_ceo:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "super.boss@sample.ca"
+  role: "CEO"
+
+# ── IT & Infrastructure org chart ────────────────────────────────────────────
+kh_tm_cto:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "mc.lessard@sample.ca"
+  role: "IT Director"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_ceo) %>
+
+kh_tm_devops:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "e.beauchamp@sample.ca"
+  role: "DevOps Engineer"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_cto) %>
+
+kh_tm_it_admin:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "j.roy@sample.ca"
+  role: "IT Administrator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_cto) %>
+
+kh_tm_it_intern:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "devops.intern@sample.ca"
+  role: "IT Intern"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_devops) %>
+
+# ── Field Operations org chart ────────────────────────────────────────────────
+kh_tm_ops_director:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "f.lapointe@sample.ca"
+  role: "Operations Director"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_ceo) %>
+
+kh_tm_fleet_manager:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "m.cote@sample.ca"
+  role: "Fleet Manager"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_ops_director) %>
+
+kh_tm_tech_morin:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "alexandre.morin@sample.ca"
+  role: "Senior Field Technician"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_fleet_manager) %>
+
+kh_tm_tech_ouellet:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "gabriel.ouellet@sample.ca"
+  role: "Field Technician"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_fleet_manager) %>
+
+kh_tm_tech_ross:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "mariepier.ross@sample.ca"
+  role: "Field Technician"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_fleet_manager) %>
+
+kh_tm_tech_bergeron:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "samuel.bergeron@sample.ca"
+  role: "Field Technician"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_tech_morin) %>
+
+kh_tm_tech_pelletier:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "jessica.pelletier@sample.ca"
+  role: "Field Technician"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_tech_morin) %>
+
+# ── Corporate & Finance org chart ─────────────────────────────────────────────
+kh_tm_cfo:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "pierre.gagnon@sample.ca"
+  role: "CFO"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_ceo) %>
+
+kh_tm_hr_director:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "i.tremblay@sample.ca"
+  role: "HR Director"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_cfo) %>
+
+kh_tm_sales_director:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "c.dube@sample.ca"
+  role: "Sales Director"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_cfo) %>
+
+kh_tm_controller:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "sophie.cloutier@sample.ca"
+  role: "Financial Controller"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_cfo) %>
+
+kh_tm_hr_gen_1:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "hr.generalist1@sample.ca"
+  role: "HR Generalist"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_hr_director) %>
+
+kh_tm_hr_gen_2:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "hr.generalist2@sample.ca"
+  role: "HR Generalist"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_hr_director) %>
+
+kh_tm_rep_nadeau:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "eric.nadeau@sample.ca"
+  role: "Senior Account Executive"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_sales_director) %>
+
+kh_tm_rep_paquin:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "valerie.paquin@sample.ca"
+  role: "Account Executive"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_sales_director) %>
+
+kh_tm_rep_thibault:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "christian.thibault@sample.ca"
+  role: "Account Executive"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_sales_director) %>
+
+# ── IT & Infrastructure (continued) — New licenses ────────────────────────────
+kh_tm_security_lead:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "c.dube@sample.ca"
+  role: "Security Lead"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_cto) %>
+
+kh_tm_infra_engineer:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "e.beauchamp@sample.ca"
+  role: "Infrastructure Engineer"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_cto) %>
+
+kh_tm_monitoring_specialist:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "monitoring.lead@sample.ca"
+  role: "Monitoring & Observability Specialist"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_infra_engineer) %>
+
+kh_tm_jira_admin:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "jira.admin@sample.ca"
+  role: "Jira Administrator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_devops) %>
+
+kh_tm_confluence_admin:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "confluence.admin@sample.ca"
+  role: "Confluence Administrator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_devops) %>
+
+# ── Corporate & Finance (continued) — New licenses ───────────────────────────
+kh_tm_slack_admin:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "slack.admin@sample.ca"
+  role: "Slack Workspace Administrator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_cfo) %>
+
+kh_tm_m365_admin:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "m365.admin@sample.ca"
+  role: "Microsoft 365 Administrator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_cfo) %>
+
+kh_tm_notion_admin:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "i.tremblay@sample.ca"
+  role: "Notion Workspace Owner"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_hr_director) %>
+
+kh_tm_figma_lead:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "c.dube@sample.ca"
+  role: "Design System Lead"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_sales_director) %>
+
+kh_tm_design_manager:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "design.manager@sample.ca"
+  role: "Design Manager"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_figma_lead) %>
+
+# ── Field Operations (continued) — New licenses ────────────────────────────────
+kh_tm_copilot_coordinator:
+  account_id: <%= ActiveRecord::FixtureSet.identify(:kh) %>
+  uuid: "m.cote@sample.ca"
+  role: "AI Tools Coordinator"
+  manager_id: <%= ActiveRecord::FixtureSet.identify(:kh_tm_ops_director) %>

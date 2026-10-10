@@ -1,0 +1,63 @@
+quote_val_ins_dev_add1:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:structure1) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_val_ins_dev) %>
+  amount: 35
+  seats: 10
+quote_atl_ins_dev_add1:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:structure1) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_atl_ins_dev) %>
+  amount: 17.5
+  seats: 5
+quote_sof_ins_dev_add1:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:structure1) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_sof_ins_dev) %>
+  amount: 17.5
+  seats: 5 
+
+quote_val_ins_prd_add1:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:structure2) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_val_ins_prd) %>
+  amount: 35
+  seats: 10
+quote_atl_ins_prd_add1:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:structure2) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_atl_ins_prd) %>
+  amount: 18
+  seats: 5
+quote_sof_ins_prd_add1:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:structure2) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_sof_ins_prd) %>
+  amount: 22
+  seats: 5
+
+quote_val_ins_prd_add2:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:dynamic) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_val_ins_prd) %>
+  amount: 71
+  seats: 10
+quote_atl_ins_prd_add2:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:dynamic) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_atl_ins_prd) %>
+  amount: 36
+  seats: 5
+quote_sof_ins_prd_add2:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:dynamic) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_sof_ins_prd) %>
+  amount: 41
+  seats: 5  
+
+quote_val_ins_prd_add3:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:timesheet) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_val_ins_prd) %>
+  amount: 80
+  seats: 10
+quote_atl_ins_prd_add3:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:timesheet) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_atl_ins_prd) %>
+  amount: 40
+  seats: 5
+quote_sof_ins_prd_add3:
+  add_on_id: <%= ActiveRecord::FixtureSet.identify(:timesheet) %>
+  quote_instance_id: <%= ActiveRecord::FixtureSet.identify(:quote_sof_ins_prd) %>
+  amount: 53
+  seats: 5  

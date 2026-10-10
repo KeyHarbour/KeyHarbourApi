@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :license_team_member, class: 'License::TeamMember' do
-    association :organization
+    association :account
     uuid { Faker::Internet.uuid }
     manager { nil }
     

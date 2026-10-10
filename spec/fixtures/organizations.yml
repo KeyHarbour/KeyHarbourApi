@@ -34,21 +34,21 @@ top_floor:
   status: 0
   uuid: 35810000-3333-0000-3333-000000000000
 
-# Simplex Rental Inc. — Organizations
-simplex_it:
-  account: simplex
+# kh Rental Inc. — Organizations
+kh_it:
+  account: kh
   name: "IT & Cloud Engineering"
   description: "Manages identity, infrastructure, and developer tooling licenses (Okta, AWS, GCP, GitHub)"
   status: 0
   uuid: 45670000-1000-0000-0000-000000000001
-simplex_ops:
-  account: simplex
+kh_ops:
+  account: kh
   name: "Field Operations"
   description: "Manages fleet tracking, field service, and mobile workforce software"
   status: 0
   uuid: 45670000-2000-0000-0000-000000000002
-simplex_corporate:
-  account: simplex
+kh_corporate:
+  account: kh
   name: "Finance & Corporate Systems"
   description: "Manages ERP, CRM, HCM, and financial software licenses"
   status: 0
