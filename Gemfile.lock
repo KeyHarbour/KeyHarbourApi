@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/KeyHarbour/KeyHarbourCore.git
-  revision: 599815fe9a98595a3df8964b08abaf34d19c05cf
+PATH
+  remote: ../KeyHarbourCore
   specs:
     key_harbour_core (1.1.3)
       activerecord (>= 8.1)
