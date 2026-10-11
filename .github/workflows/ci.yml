@@ -148,7 +148,7 @@ jobs:
           --health-retries=3
     permissions:
       contents: write
-    needs: [scan_rubocop, tests]
+    needs: [coverage]
     steps:
       - uses: actions/checkout@v7
         with:

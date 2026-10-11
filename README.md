@@ -23,6 +23,13 @@ And then execute:
 $ bundle install
 ```
 
+### Using local installation of KeyHarbourCore
+
+On the root path of this project, simply run this command (and replace the target folder by the right one, if it's different)
+```
+bundle config set --local local.key_harbour_core ../KeyHarbourCore
+```
+
 ## Contributing
 Contribution directions go here.
 
