@@ -92,7 +92,7 @@ jobs:
           path: coverage.svg
 
   coverage:
-    name: Add Coverage
+    name: Add Coverage Badge
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -120,3 +120,64 @@ jobs:
             git commit -m "chore: Adding coverage [skip ci]"
             git push origin HEAD:${{ github.head_ref }}
           fi
+
+  swagger:
+    name: Add Swagger
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
+      meilisearch:
+        image: getmeili/meilisearch:v1.12
+        env:
+          MEILI_MASTER_KEY: password123
+          MEILI_ENV: development
+          MEILI_NO_ANALYTICS: "true"
+        ports:
+          - 7700:7700
+        options: >-
+          --health-cmd="curl -f http://localhost:7700/health"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+    permissions:
+      contents: write
+    needs: [scan_rubocop, tests]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }} 
+
+      - name: Install packages
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libpq-dev
+
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '4.0.6'
+          bundler-cache: true
+
+      - name: Prepare tests
+        working-directory: spec/dummy
+        run: |
+          bundle exec rails db:setup RAILS_ENV=test
+          
+      - name: Add swagger
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          bundle exec rake app:rswag:specs:swaggerize
+          git add spec/dummy/swagger/v2/openapi.yaml
+          if git diff-index --quiet HEAD -- coverage.svg; then
+            echo "No new content for swagger"
+          else
+            git commit -m "chore: Adding swagger [skip ci]"
+            git push origin HEAD:${{ github.head_ref }}
+          fi          

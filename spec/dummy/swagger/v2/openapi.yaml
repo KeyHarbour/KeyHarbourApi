@@ -1,0 +1,1380 @@
+---
+openapi: 3.0.1
+info:
+  title: API V2
+  version: v2
+servers:
+- url: https:///api/v2
+  description: API Serveur
+  variables:
+    defaultHost:
+      default: https://
+components:
+  schemas:
+    Created:
+      type: object
+      properties:
+        status:
+          type: string
+          example: accepted
+    Updated:
+      type: object
+      properties:
+        status:
+          type: string
+          example: updated
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+- bearerAuth: []
+paths:
+  "/auth":
+    get:
+      summary: auth application
+      tags:
+      - Authentification
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Access granted
+        '401':
+          description: Unauthorized
+  "/workspaces/{workspace_uuid}/keyvalues":
+    post:
+      summary: Create a new Keyvalue
+      tags:
+      - Key/Values
+      parameters:
+      - name: workspace_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Project created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Created"
+        '422':
+          description: Unprocessable Entity
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                  example: my-key-123
+                value:
+                  type: string
+                  format: json
+                  example: '{"test": true}'
+                value_file:
+                  type: string
+                  format: binary
+                expires_at:
+                  type: string
+                  format: date_time
+                private:
+                  type: boolean
+                one_time_only:
+                  type: boolean
+              required:
+              - key
+              oneOf:
+              - required:
+                - value
+              - required:
+                - value_file
+  "/keyvalues/{key}":
+    get:
+      summary: Get a specific keyvalue
+      tags:
+      - Key/Values
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Donnée lue et détruite
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    patch:
+      summary: Update a specific key_value_store
+      tags:
+      - Key/Values
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Workspace updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Updated"
+        '422':
+          description: Unprocessable Entity
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                value:
+                  type: string
+                value_file:
+                  type: string
+                  format: binary
+                expires_at:
+                  type: string
+                  format: date_time
+                private:
+                  type: boolean
+                one_time_only:
+                  type: boolean
+              required:
+              - key
+              oneOf:
+              - required:
+                - value
+              - required:
+                - value_file
+    delete:
+      summary: Delete a workspace
+      tags:
+      - Key/Values
+      parameters:
+      - name: key
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no content
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+  "/license/applications":
+    get:
+      summary: get all apps for an account
+      tags:
+      - Applications
+      responses:
+        '200':
+          description: Apps found
+    post:
+      summary: Create a new application
+      tags:
+      - Applications
+      parameters: []
+      responses:
+        '201':
+          description: Application created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Created"
+        '400':
+          description: Bad Request
+        '422':
+          description: Unprocessable Entity
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                application:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    short_name:
+                      type: string
+                    owner:
+                      type: string
+                    renewal_date:
+                      type: date
+                    vendor:
+                      type: string
+                    tier:
+                      type: string
+                    seats:
+                      type: integer
+                    unit_cost:
+                      type: number
+                      format: float
+                  required:
+                  - name
+                  - short_name
+                  - owner
+                  - vendor
+              required:
+              - application
+  "/license/applications/{uuid}":
+    get:
+      summary: get application details
+      tags:
+      - Applications
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Application found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  short_name:
+                    type: string
+                  owner:
+                    type: string
+                  renewal_date:
+                    type: date
+                  vendor:
+                    type: string
+                  tier:
+                    type: string
+                  seats:
+                    type: integer
+                  unit_cost:
+                    type: number
+                    format: float
+                  status:
+                    type: string
+                    enum:
+                    - active
+                    - disabled
+                    - archived
+                    example: active
+                required:
+                - name
+                - owner
+                - renewal_date
+                - vendor
+                - tier
+                - seats
+                - status
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    patch:
+      summary: update application detail
+      tags:
+      - Applications
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Application updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Updated"
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                application:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    short_name:
+                      type: string
+                    owner:
+                      type: string
+                    renewal_date:
+                      type: date
+                    vendor:
+                      type: string
+                    tier:
+                      type: string
+                    seats:
+                      type: integer
+                    unit_cost:
+                      type: number
+                      format: float
+                    status:
+                      type: string
+                      enum:
+                      - active
+                      - disabled
+                      - archived
+                  required:
+                  - name
+                  - short_name
+                  - owner
+                  - vendor
+              required:
+              - application
+    delete:
+      summary: Delete a workspace
+      tags:
+      - Applications
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no content
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+  "/license/applications/{application_uuid}/instances":
+    get:
+      summary: get all instances for an application
+      tags:
+      - Instances
+      parameters:
+      - name: application_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Instances found
+        '401':
+          description: Unauthorized
+    post:
+      summary: Create a new instance
+      tags:
+      - Instances
+      parameters:
+      - name: application_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Instance created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Created"
+        '400':
+          description: Bad Request
+        '422':
+          description: Unprocessable Entity
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instance:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    short_name:
+                      type: string
+                    owner:
+                      type: string
+                    renewal_date:
+                      type: date
+                    seats:
+                      type: integer
+                    unit_cost:
+                      type: number
+                      format: float
+                  required:
+                  - name
+                  - short_name
+              required:
+              - instance
+  "/license/instances/{uuid}":
+    get:
+      summary: get instance details
+      tags:
+      - Instances
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Instance found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  short_name:
+                    type: string
+                  owner:
+                    type: string
+                  renewal_date:
+                    type: date
+                  seats:
+                    type: integer
+                  unit_cost:
+                    type: number
+                    format: float
+                  status:
+                    type: string
+                    enum:
+                    - active
+                    - disabled
+                    - archived
+                    example: active
+                required:
+                - name
+                - owner
+                - renewal_date
+                - seats
+                - status
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    patch:
+      summary: update instance detail
+      tags:
+      - Instances
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Application updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Updated"
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instance:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    short_name:
+                      type: string
+                    owner:
+                      type: string
+                    renewal_date:
+                      type: date
+                    seats:
+                      type: integer
+                    unit_cost:
+                      type: number
+                      format: float
+                    status:
+                      type: string
+                      enum:
+                      - active
+                      - disabled
+                      - archived
+                  required:
+                  - name
+                  - short_name
+                  - owner
+              required:
+              - instance
+    delete:
+      summary: Delete a instance
+      tags:
+      - Instances
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no content
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+  "/license/instances/{instance_uuid}/licensees":
+    get:
+      summary: get all licensees for an instance
+      tags:
+      - Licensees
+      parameters:
+      - name: instance_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Licensees found
+        '401':
+          description: Unauthorized
+    post:
+      summary: Create a new license
+      tags:
+      - Licensees
+      parameters:
+      - name: instance_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Instance created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Created"
+        '422':
+          description: Unprocessable Entity
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                licensee:
+                  type: object
+                  properties:
+                    uuid:
+                      type: string
+                  required:
+                  - uuid
+              required:
+              - licensee
+  "/license/licensees/{uuid}":
+    get:
+      summary: get licensee details
+      tags:
+      - Licensees
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Instance found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uuid:
+                    type: string
+                  status:
+                    type: string
+                    enum:
+                    - active
+                    - disabled
+                    - archived
+                    example: active
+                required:
+                - uuid
+                - status
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    patch:
+      summary: update instance detail
+      tags:
+      - Licensees
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Application updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Updated"
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instance:
+                  type: object
+                  properties:
+                    uuid:
+                      type: string
+                    status:
+                      type: string
+                      enum:
+                      - active
+                      - disabled
+                      - archived
+                  required:
+                  - uuid
+              required:
+              - licensee
+    delete:
+      summary: Delete a instance
+      tags:
+      - Licensees
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no content
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+  "/license/auth":
+    get:
+      summary: auth application
+      tags:
+      - Authentification
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Access granted
+        '401':
+          description: Unauthorized
+  "/license/team_members/{uuid}":
+    patch:
+      summary: update team_member detail
+      tags:
+      - License Team Members
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Application updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Updated"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                team_member:
+                  type: object
+                  properties:
+                    uuid:
+                      type: string
+                    manager_uuid:
+                      type: string
+                  required:
+                  - uuid
+                  - manager_uuid
+              required:
+              - team_member
+  "/organizations/{organization_uuid}/projects":
+    get:
+      summary: Get all projects
+      tags:
+      - Projects
+      parameters:
+      - name: organization_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '401':
+          description: Unauthorized
+        '200':
+          description: Project found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    uuid:
+                      type: string
+        '404':
+          description: Not found
+    post:
+      summary: Create a new project
+      tags:
+      - Projects
+      parameters:
+      - name: organization_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '401':
+          description: Unauthorized
+        '201':
+          description: Projects created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Created"
+        '400':
+          description: Bad Request
+        '422':
+          description: Unprocessable Entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                project:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    description:
+                      type: string
+                    environment_names:
+                      type: array
+                      items:
+                        type: string
+                  required:
+                  - name
+                  - environment_names
+              required:
+              - project
+  "/projects/{uuid}":
+    get:
+      summary: get project detail
+      tags:
+      - Projects
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Project found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  environment_names:
+                    type: array
+                    items:
+                      type: string
+                required:
+                - name
+                - environments
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    patch:
+      summary: update project detail
+      tags:
+      - Projects
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Project updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Updated"
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                environment_names:
+                  type: array
+                  items:
+                    type: string
+              required:
+              - name
+              - environment_names
+  "/workspaces/{workspace_uuid}/statefiles":
+    get:
+      summary: Get all statefiles
+      tags:
+      - Statefiles
+      parameters:
+      - name: workspace_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: environment
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Project found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    content:
+                      type: string
+                    uuid:
+                      type: string
+                    published_at:
+                      type: string
+                      format: date_time
+                  required:
+                  - content
+                  - uuid
+                  - published_at
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    delete:
+      summary: delete all statefiles
+      tags:
+      - Statefiles
+      parameters:
+      - name: workspace_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no content
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    post:
+      summary: Push new statefile
+      tags:
+      - Statefiles
+      parameters:
+      - name: workspace_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Statefile created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Created"
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+              required:
+              - content
+  "/workspaces/{workspace_uuid}/statefiles/last":
+    get:
+      summary: Get last statefile
+      tags:
+      - Statefiles
+      parameters:
+      - name: workspace_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Project found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: string
+                  published_at:
+                    type: string
+                    format: date-time
+                required:
+                - content
+                - published_at
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+  "/statefiles/{uuid}":
+    get:
+      summary: Get a specific statefile
+      tags:
+      - Statefiles
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Project found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: string
+                  published_at:
+                    type: string
+                    format: date-time
+                required:
+                - content
+                - published_at
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    delete:
+      summary: Delete a specific statefile
+      tags:
+      - Statefiles
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no content
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+  "/workspaces/{workspace_uuid}/trust_assets":
+    get:
+      summary: Get all Trust Assets
+      tags:
+      - TrustAssets
+      parameters:
+      - name: workspace_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Project found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: my-key-123
+                    issuer:
+                      type: string
+                      format: json
+                      example: Certigot
+                    expires_at:
+                      type: string
+                      format: date_time
+                    format:
+                      type: string
+                    consumer:
+                      type: string
+                  required:
+                  - name
+                  - issuer
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    post:
+      summary: Create a new Trust Asset
+      tags:
+      - TrustAssets
+      parameters:
+      - name: workspace_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Trust assets created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Created"
+        '422':
+          description: Unprocessable Entity
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: my-key-123
+                issuer:
+                  type: string
+                  format: json
+                  example: Certigot
+                expires_at:
+                  type: string
+                  format: date_time
+                format:
+                  type: integer
+                consumer:
+                  type: string
+              required:
+              - name
+              - issuer
+  "/trust_assets/{name}":
+    get:
+      summary: Get a specific trust_asset
+      tags:
+      - TrustAssets
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Donnée lue et détruite
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    patch:
+      summary: Update a specific trust_asset
+      tags:
+      - TrustAssets
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Workspace updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Updated"
+        '422':
+          description: Unprocessable Entity
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: my-key-123
+                issuer:
+                  type: string
+                  format: json
+                  example: Certigot
+                expires_at:
+                  type: string
+                  format: date_time
+                format:
+                  type: string
+                consumer:
+                  type: string
+    delete:
+      summary: Delete a workspace
+      tags:
+      - TrustAssets
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no content
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+  "/projects/{project_uuid}/workspaces":
+    get:
+      summary: Get all workspaces
+      tags:
+      - Workspaces
+      parameters:
+      - name: project_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Project found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    uuid:
+                      type: string
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    post:
+      summary: Create a new workspace
+      tags:
+      - Workspaces
+      parameters:
+      - name: project_uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Workspace created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Created"
+        '400':
+          description: Bad Request
+        '422':
+          description: Unprocessable Entity
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                workspace:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    description:
+                      type: string
+                  required:
+                  - name
+                  - description
+              required:
+              - workspace
+  "/workspaces/{uuid}":
+    get:
+      summary: Get a specific workspace
+      tags:
+      - Workspaces
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Project found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                required:
+                - name
+                - description
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+    patch:
+      summary: Update a specific workspace
+      tags:
+      - Workspaces
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Workspace updated
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Updated"
+        '400':
+          description: Bad Request
+        '422':
+          description: Unprocessable Entity
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+              - description
+    delete:
+      summary: Delete a workspace
+      tags:
+      - Workspaces
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no content
+        '404':
+          description: Not found
+        '401':
+          description: Unauthorized
