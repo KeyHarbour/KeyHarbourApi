@@ -17,7 +17,6 @@ class Api::V2::StatefilesController < Api::V2::ApplicationController
     @statefile = @workspace.statefiles.new(item_params)
     @statefile.published_at = DateTime.now.utc
     @statefile.environment =  @environment
-    Rails.logger.info @statefile.attributes
     if @statefile.save
       render json: { status: "created" }, status: :created
     else
