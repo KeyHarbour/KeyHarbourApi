@@ -10,7 +10,6 @@ class Statefiles::V1::StatefilesController < ActionController::Base
       base64_credentials = auth_header.split(' ', 2).last
       decoded = Base64.decode64(base64_credentials)
       username, password = decoded.split(':', 2)
-      logger.debug "Username: #{username}, Password: #{password}"
       return password
     end
 

@@ -24,9 +24,7 @@ class Api::V2::WorkspacesController < Api::V2::ApplicationController
   end
 
   def update
-    logger.debug Workspace.all.map(&:name)
     @workspace.update(item_params)
-    logger.debug @workspace.errors.full_messages
     if @workspace.update(item_params)
       render json: { status: "updated" }, status: :accepted
     else
