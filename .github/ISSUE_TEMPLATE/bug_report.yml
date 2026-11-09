@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a reproducible bug in KeyHarbourCE
+description: Report a reproducible bug in KeyHarbourApi
 title: "[Bug]: "
 labels: ["bug", "triage"]
 body:
@@ -47,7 +47,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: KeyHarbourCE Version
+      label: KeyHarbourApi Version
       description: Check the `VERSION` file or Docker image tag.
       placeholder: "v1.13.1"
     validations:
