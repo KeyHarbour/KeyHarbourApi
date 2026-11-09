@@ -23,6 +23,7 @@ group :development, :test do
   gem "debug"
   gem 'rubocop', require: false
   gem 'simplecov-badge', require: false
+  gem "brakeman", require: false
 end
 
 group :test do
@@ -39,3 +40,4 @@ gem 'rswag-ui'
 gem 'rswag-specs'
 gem "i18n-tasks"
 gem 'ostruct'
+gem "lockbox"
