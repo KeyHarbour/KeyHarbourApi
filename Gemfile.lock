@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/KeyHarbour/KeyHarbourCore.git
-  revision: 8713be0fb353647507bc6c8875972b39045edd34
+  revision: fd7088d4a374ba3b6405476c270d3822c77d7f84
   branch: main
   specs:
-    key_harbour_core (1.3.0)
+    key_harbour_core (1.3.2)
       activerecord (>= 8.1)
       rails (>= 8.1.3.1)
       railties (>= 8.1)
@@ -14,7 +14,7 @@ GIT
 PATH
   remote: .
   specs:
-    key_harbour_api (1.0.11)
+    key_harbour_api (1.0.12)
       rails (>= 8.1.3.1)
 
 GEM
@@ -482,8 +482,8 @@ CHECKSUMS
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
   json-schema (6.2.0) sha256=e8bff46ed845a22c1ab2bd0d7eccf831c01fe23bb3920caa4c74db4306813666
   jwt (3.3.0) sha256=44cc34fbc341c148233cf66641522b4bce0dfb1ce55e8073f05c56f44f4ee546
-  key_harbour_api (1.0.11)
-  key_harbour_core (1.3.0)
+  key_harbour_api (1.0.12)
+  key_harbour_core (1.3.2)
   language_server-protocol (3.17.0.6) sha256=5ef2c0c138f8267e1bc631d3328347d354f96724b0af22f2c79516120443b7f0
   lint_roller (1.1.0) sha256=2c0c845b632a7d172cb849cc90c1bce937a28c5c8ccccb50dfd46a485003cc87
   lockbox (2.2.0) sha256=f80a20ee0161299b23a588d839d23a1232863112c4b6b9bc31eed28ff9d591af
