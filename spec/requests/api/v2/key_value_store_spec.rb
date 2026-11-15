@@ -73,12 +73,12 @@ RSpec.describe 'keyvalue', type: :request, openapi_spec: 'v2/openapi.yaml' do
         }
       end
       
-      response '201', 'Project created' do
+      response '201', 'KeyValueStore item created' do
         schema '$ref' => '#/components/schemas/Created'
         run_test!
       end
       
-      response '201', 'Project created' do
+      response '201', 'KeyValueStore item created' do
         let(:key_value_store) do 
           {
             key: 'AbC', 
@@ -119,7 +119,7 @@ RSpec.describe 'keyvalue', type: :request, openapi_spec: 'v2/openapi.yaml' do
       let(:environment) { environment_obj.name } 
       let(:key) { "123" } 
 
-      response '200', 'Donnée lue et détruite' do
+      response '200', 'Data read and deleted' do
         let(:key) { "456" }
 
         run_test! do
@@ -129,7 +129,7 @@ RSpec.describe 'keyvalue', type: :request, openapi_spec: 'v2/openapi.yaml' do
         end
       end
 
-      response '200', 'Donnée lue et détruite' do
+      response '200', 'Data read and deleted' do
         # schema type: :string, format: :binary
 
         run_test! do
@@ -175,7 +175,7 @@ RSpec.describe 'keyvalue', type: :request, openapi_spec: 'v2/openapi.yaml' do
       }
       let(:key_value_store) { {key: 'abc', value_file: Rack::Test::UploadedFile.new(StringIO.new('def'), 'text/plain', original_filename: 'test.txt')} }
 
-      response '202', 'Workspace updated' do
+      response '202', 'KeyValueStore updated' do
         schema '$ref' => '#/components/schemas/Updated'
         run_test!
       end
@@ -201,7 +201,7 @@ RSpec.describe 'keyvalue', type: :request, openapi_spec: 'v2/openapi.yaml' do
       end
     end
 
-    delete('Delete a workspace') do
+    delete('Delete a keyvalue item') do
       tags 'Key/Values'
       produces 'application/json'
       consumes 'application/json'

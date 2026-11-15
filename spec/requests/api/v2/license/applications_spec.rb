@@ -160,7 +160,7 @@ RSpec.describe 'api/v2/license/applications', type: :request, openapi_spec: 'v2/
       end
     end  
     
-    delete('Delete a workspace') do
+    delete('Delete an application') do
       tags 'Applications'
       produces 'application/json'
       consumes 'application/json'

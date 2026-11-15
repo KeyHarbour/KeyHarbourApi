@@ -16,7 +16,7 @@ RSpec.describe 'Trust Assets', type: :request, openapi_spec: 'v2/openapi.yaml' d
       produces 'application/json'
       parameter name: 'workspace_uuid', in: :path, type: :string
 
-      response '200', 'Project found' do
+      response '200', 'Trust assets found' do
         schema type: :array,
           items: {
             type: :object,
@@ -96,7 +96,7 @@ RSpec.describe 'Trust Assets', type: :request, openapi_spec: 'v2/openapi.yaml' d
       let(:environment) { environment_obj.name } 
       let(:name) { "123" } 
 
-      response '200', 'Donnée lue et détruite' do
+      response '200', 'Trust asset read and deleted' do
         let(:name) { "123" }
 
         run_test! do
@@ -136,7 +136,7 @@ RSpec.describe 'Trust Assets', type: :request, openapi_spec: 'v2/openapi.yaml' d
       }
       let(:trust_asset) { {name: 'abc', consumer: 'def'} }
 
-      response '202', 'Workspace updated' do
+      response '202', 'Trust asset updated' do
         schema '$ref' => '#/components/schemas/Updated'
         run_test!
       end
@@ -157,7 +157,7 @@ RSpec.describe 'Trust Assets', type: :request, openapi_spec: 'v2/openapi.yaml' d
       end
     end
 
-    delete('Delete a workspace') do
+    delete('Delete a trust asset item') do
       tags 'TrustAssets'
       produces 'application/json'
       consumes 'application/json'

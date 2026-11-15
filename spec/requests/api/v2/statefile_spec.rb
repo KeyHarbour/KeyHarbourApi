@@ -20,7 +20,7 @@ RSpec.describe 'api/v2/statefile', type: :request, openapi_spec: 'v2/openapi.yam
       parameter name: 'environment', in: :query, type: :string
       let(:environment) { environment_obj.name } 
 
-      response '200', 'Project found' do
+      response '200', 'statefiles found' do
         schema type: :array,
           items: {
             type: :object,
@@ -108,7 +108,7 @@ RSpec.describe 'api/v2/statefile', type: :request, openapi_spec: 'v2/openapi.yam
       let(:environment) { environment_obj.name } 
       let(:statefile2) { create(:statefile, workspace: workspace, environment: environment) }
 
-      response '200', 'Project found' do
+      response '200', 'Statefiles found' do
         schema type: :object,
           properties: {
             content: { type: :string },
@@ -141,7 +141,7 @@ RSpec.describe 'api/v2/statefile', type: :request, openapi_spec: 'v2/openapi.yam
       parameter name: 'uuid', in: :path, type: :string
       let(:uuid) { workspace.statefiles.last.uuid } 
 
-      response '200', 'Project found' do
+      response '200', 'Statefiles found' do
         schema type: :object,
           properties: {
             content: { type: :string },

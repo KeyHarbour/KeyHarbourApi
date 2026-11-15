@@ -52,7 +52,7 @@ RSpec.describe 'api/v2/license/licensees', type: :request, openapi_spec: 'v2/ope
         required: [ 'licensee' ]
       }
 
-      response '201', 'Instance created' do
+      response '201', 'Licensee created' do
         schema '$ref' => '#/components/schemas/Created'
         run_test!
       end
@@ -76,7 +76,7 @@ RSpec.describe 'api/v2/license/licensees', type: :request, openapi_spec: 'v2/ope
       parameter name: 'uuid', in: :path, type: :string
       let(:uuid) { licensee.uuid } 
 
-      response '200', 'Instance found' do
+      response '200', 'Licensee found' do
         schema type: :object,
           properties: {
             uuid: { type: :string },
@@ -102,7 +102,7 @@ RSpec.describe 'api/v2/license/licensees', type: :request, openapi_spec: 'v2/ope
       end
     end
 
-    patch('update instance detail') do
+    patch('update license detail') do
       tags 'Licensees'
       produces 'application/json'
       consumes 'application/json'
