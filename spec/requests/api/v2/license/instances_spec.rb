@@ -9,6 +9,7 @@ RSpec.describe 'api/v2/license/instances', type: :request, openapi_spec: 'v2/ope
   path '/license/applications/{application_uuid}/instances' do
     get('get all instances for an application') do
       tags 'Instances'
+      produces 'application/json'
       parameter name: 'application_uuid', in: :path, type: :string
       let(:application_uuid) { application.uuid } 
       response '200', 'Instances found' do

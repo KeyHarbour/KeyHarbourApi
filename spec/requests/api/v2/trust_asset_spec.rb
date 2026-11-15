@@ -90,6 +90,7 @@ RSpec.describe 'Trust Assets', type: :request, openapi_spec: 'v2/openapi.yaml' d
   path '/trust_assets/{name}' do
     get('Get a specific trust_asset') do
       tags 'TrustAssets'
+      produces 'application/json'
       let(:'Accept') { 'application/octet-stream' }
       parameter name: 'name', in: :path, type: :string
       let(:environment) { environment_obj.name } 
