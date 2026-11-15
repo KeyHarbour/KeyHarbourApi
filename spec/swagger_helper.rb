@@ -7,7 +7,7 @@ RSpec.configure do |config|
   # NOTE: If you're using the rswag-api to serve API descriptions, you'll need
   # to ensure that it's configured to serve Swagger from the same folder
   # config.openapi_root = Rails.root.join('swagger').to_s
-  config.openapi_root = Rails.root.join('swagger').to_s
+  config.openapi_root = KeyHarbourApi::Engine.root.join('swagger').to_s
 
   # Define one or more Swagger documents and provide global metadata for each one
   # When you run the 'rswag:specs:swaggerize' rake task, the complete Swagger will
@@ -16,7 +16,7 @@ RSpec.configure do |config|
   # document below. You can override this behavior by adding a openapi_spec tag to the
   # the root example_group in your specs, e.g. describe '...', openapi_spec: 'v2/swagger.json'
   config.openapi_specs = {
-    'v2/openapi.yaml' => {
+    'api_v2/openapi.yaml' => {
       openapi: '3.0.1',
       info: {
         title: 'API V2',
@@ -24,8 +24,60 @@ RSpec.configure do |config|
       },
       servers: [
         {
-          url: "https://#{ENV['HOST']}/api/v2",
+          url: "https://#{ENV['HOST']}/api/v2/",
           description: 'API Serveur',
+          variables: {
+            defaultHost: {
+              default: "https://#{ENV['HOST']}"
+            }
+          }
+        }
+      ],
+      components: {
+        schemas: {
+          Created: {
+            type: :object,
+            properties: {
+              status: { type: :string, example: "accepted" }
+            }
+          },
+          Updated: {
+            type: :object,
+            properties: {
+              status: { type: :string, example: "updated" }
+            }
+          }
+        }, 
+        securitySchemes: {
+          bearerAuth: {
+            type: :http,
+            scheme: :bearer,
+            bearerFormat: :JWT
+          }
+          # basicAuth: {
+          #   type: :http,
+          #   scheme: :basic
+          # }
+        }
+      },
+      security: [
+        {
+          bearerAuth: []
+        }
+      ],
+      paths: {}
+    },
+
+    'statefile_v1/openapi.yaml' => {
+      openapi: '3.0.1',
+      info: {
+        title: 'Statefile V1',
+        version: 'v1'
+      },
+      servers: [
+        {
+          url: "https://#{ENV['HOST']}/statefiles/v1/",
+          description: 'Statefile Serveur',
           variables: {
             defaultHost: {
               default: "https://#{ENV['HOST']}"

@@ -56,7 +56,7 @@ paths:
           type: string
       responses:
         '201':
-          description: Project created
+          description: KeyValueStore item created
           content:
             application/json:
               schema:
@@ -108,7 +108,7 @@ paths:
           type: string
       responses:
         '200':
-          description: Donnée lue et détruite
+          description: Data read and deleted
         '404':
           description: Not found
         '401':
@@ -125,7 +125,7 @@ paths:
           type: string
       responses:
         '202':
-          description: Workspace updated
+          description: KeyValueStore updated
           content:
             application/json:
               schema:
@@ -164,7 +164,7 @@ paths:
               - required:
                 - value_file
     delete:
-      summary: Delete a workspace
+      summary: Delete a keyvalue item
       tags:
       - Key/Values
       parameters:
@@ -188,6 +188,20 @@ paths:
       responses:
         '200':
           description: Apps found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    uuid:
+                      type: string
+                  required:
+                  - name
+                  - uuid
     post:
       summary: Create a new application
       tags:
@@ -355,7 +369,7 @@ paths:
               required:
               - application
     delete:
-      summary: Delete a workspace
+      summary: Delete an application
       tags:
       - Applications
       parameters:
@@ -385,6 +399,20 @@ paths:
       responses:
         '200':
           description: Instances found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    uuid:
+                      type: string
+                  required:
+                  - name
+                  - uuid
         '401':
           description: Unauthorized
     post:
@@ -572,6 +600,17 @@ paths:
       responses:
         '200':
           description: Licensees found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    uuid:
+                      type: string
+                  required:
+                  - uuid
         '401':
           description: Unauthorized
     post:
@@ -586,7 +625,7 @@ paths:
           type: string
       responses:
         '201':
-          description: Instance created
+          description: Licensee created
           content:
             application/json:
               schema:
@@ -623,7 +662,7 @@ paths:
           type: string
       responses:
         '200':
-          description: Instance found
+          description: Licensee found
           content:
             application/json:
               schema:
@@ -646,7 +685,7 @@ paths:
         '401':
           description: Unauthorized
     patch:
-      summary: update instance detail
+      summary: update license detail
       tags:
       - Licensees
       parameters:
@@ -911,7 +950,7 @@ paths:
           type: string
       responses:
         '200':
-          description: Project found
+          description: statefiles found
           content:
             application/json:
               schema:
@@ -993,7 +1032,7 @@ paths:
           type: string
       responses:
         '200':
-          description: Project found
+          description: Statefiles found
           content:
             application/json:
               schema:
@@ -1024,7 +1063,7 @@ paths:
           type: string
       responses:
         '200':
-          description: Project found
+          description: Statefiles found
           content:
             application/json:
               schema:
@@ -1072,7 +1111,7 @@ paths:
           type: string
       responses:
         '200':
-          description: Project found
+          description: Trust assets found
           content:
             application/json:
               schema:
@@ -1158,7 +1197,7 @@ paths:
           type: string
       responses:
         '200':
-          description: Donnée lue et détruite
+          description: Trust asset read and deleted
         '404':
           description: Not found
         '401':
@@ -1175,7 +1214,7 @@ paths:
           type: string
       responses:
         '202':
-          description: Workspace updated
+          description: Trust asset updated
           content:
             application/json:
               schema:
@@ -1207,7 +1246,7 @@ paths:
                 consumer:
                   type: string
     delete:
-      summary: Delete a workspace
+      summary: Delete a trust asset item
       tags:
       - TrustAssets
       parameters:

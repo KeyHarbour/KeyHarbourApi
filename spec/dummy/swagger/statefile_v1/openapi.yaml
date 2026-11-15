@@ -1,0 +1,142 @@
+---
+openapi: 3.0.1
+info:
+  title: Statefile V1
+  version: v1
+servers:
+- url: https:///statefiles/v1/
+  description: Statefile Serveur
+  variables:
+    defaultHost:
+      default: https://
+components:
+  schemas:
+    Created:
+      type: object
+      properties:
+        status:
+          type: string
+          example: accepted
+    Updated:
+      type: object
+      properties:
+        status:
+          type: string
+          example: updated
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+- bearerAuth: []
+paths:
+  "{workspace_uuid}/{environment_name}":
+    parameters:
+    - name: workspace_uuid
+      in: path
+      description: UUID du workspace
+      required: true
+      schema:
+        type: string
+    - name: environment_name
+      in: path
+      description: Nom de l'environnement
+      required: true
+      schema:
+        type: string
+    - name: Authorization
+      in: header
+      required: true
+      description: Bearer <token> ou Basic <base64>
+      schema:
+        type: string
+    get:
+      summary: Récupère le statefile Terraform
+      tags:
+      - Statefiles
+      security:
+      - bearer_auth: []
+      - basic_auth: []
+      responses:
+        '200':
+          description: Enregistre une requête dans ApiQuery
+        '401':
+          description: Non autorisé (Token invalide ou manquant)
+    post:
+      summary: Met à jour ou crée un statefile Terraform
+      tags:
+      - Statefiles
+      security:
+      - bearer_auth: []
+      - basic_auth: []
+      parameters: []
+      responses:
+        '200':
+          description: Statefile enregistré avec succès
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                version:
+                  type: integer
+                  example: 4
+                terraform_version:
+                  type: string
+                  example: 1.5.0
+                serial:
+                  type: integer
+                  example: 3
+              required:
+              - version
+    put:
+      summary: Verrouille le statefile
+      tags:
+      - Statefiles
+      security:
+      - bearer_auth: []
+      - basic_auth: []
+      parameters: []
+      responses:
+        '200':
+          description: Workspace verrouillé avec succès
+        '409':
+          description: 'Conflit : le workspace est déjà verrouillé'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+                  example: lock-uuid-1234
+                Operation:
+                  type: string
+                  example: OperationTypeApply
+                Info:
+                  type: string
+                  example: Applying changes
+                Who:
+                  type: string
+                  example: user@domain.com
+                Version:
+                  type: string
+                  example: 1.5.0
+                path:
+                  type: string
+                  example: tfstate
+    delete:
+      summary: Déverrouille le statefile
+      tags:
+      - Statefiles
+      security:
+      - bearer_auth: []
+      - basic_auth: []
+      responses:
+        '200':
+          description: Verrou supprimé avec succès
+        '409':
+          description: Aucun verrou trouvé à supprimer

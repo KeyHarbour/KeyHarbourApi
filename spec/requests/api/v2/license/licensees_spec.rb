@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-RSpec.describe 'api/v2/license/licensees', type: :request, openapi_spec: 'v2/openapi.yaml' do
+RSpec.describe 'api/v2/license/licensees', type: :request, openapi_spec: 'api_v2/openapi.yaml' do
   include_context 'license_token'
   let(:application) { create(:license_application, account: account) }
   let(:instance) { create(:license_instance, application: application) }

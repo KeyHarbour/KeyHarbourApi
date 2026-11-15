@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-RSpec.describe 'application', type: :request, openapi_spec: 'v2/openapi.yaml' do
+RSpec.describe 'application', type: :request, openapi_spec: 'api_v2/openapi.yaml' do
 
   path '/auth' do
 

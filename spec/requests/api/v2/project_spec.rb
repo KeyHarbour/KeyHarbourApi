@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-RSpec.describe 'api/v2/projects', type: :request, openapi_spec: 'v2/openapi.yaml' do
+RSpec.describe 'api/v2/projects', type: :request, openapi_spec: 'api_v2/openapi.yaml' do
   include_context 'project_token'
 
   path '/organizations/{organization_uuid}/projects' do 
@@ -121,7 +121,7 @@ RSpec.describe 'api/v2/projects', type: :request, openapi_spec: 'v2/openapi.yaml
   end
 end
 
-RSpec.describe 'api/v2/projects', type: :request, openapi_spec: 'v2/openapi.yaml' do
+RSpec.describe 'api/v2/projects', type: :request, openapi_spec: 'api_v2/openapi.yaml' do
   include_context 'organization_token'
    
   path '/organizations/{organization_uuid}/projects' do 

@@ -1,7 +1,7 @@
 require 'swagger_helper'
 require 'rails_helper'
 
-RSpec.describe 'api/v1/workspace with organization token', type: :request, openapi_spec: 'v2/openapi.yaml' do
+RSpec.describe 'api/v1/workspace with organization token', type: :request, openapi_spec: 'api_v2/openapi.yaml' do
   include_context 'organization_token'
   let(:project) { create(:project, organization: organization) }
   let(:workspace) { create(:workspace, project: project) }
@@ -187,7 +187,7 @@ RSpec.describe 'api/v1/workspace with organization token', type: :request, opena
 end
 #
 #
-# RSpec.describe 'api/v2/workspace with workspace token', type: :request, openapi_spec: 'v2/openapi.yaml' do
+# RSpec.describe 'api/v2/workspace with workspace token', type: :request, openapi_spec: 'api_v2/openapi.yaml' do
 #   include_context 'workspace_token'
 #   let(:project) { workspace.project }
 #   let(:organization) { project.organization }
@@ -267,7 +267,7 @@ end
 #   end
 # end
 #
-# RSpec.describe 'api/v2/workspace with project token', type: :request, openapi_spec: 'v2/openapi.yaml' do
+# RSpec.describe 'api/v2/workspace with project token', type: :request, openapi_spec: 'api_v2/openapi.yaml' do
 #   include_context 'project_token'
 #   let(:workspace) { create(:workspace, project: project) }
 #   let(:project_uuid) { project.uuid }
