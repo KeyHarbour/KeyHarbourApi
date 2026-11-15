@@ -8,6 +8,7 @@ RSpec.describe 'api/v2/license/applications', type: :request, openapi_spec: 'v2/
 
     get('get all apps for an account') do
       tags 'Applications'
+      produces 'application/json'
       response '200', 'Apps found' do
         schema type: :array,
           items: {
