@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-RSpec.describe 'keyvalue', type: :request, openapi_spec: 'v2/openapi.yaml' do
+RSpec.describe 'keyvalue', type: :request, openapi_spec: 'api_v2/openapi.yaml' do
   include_context 'project_token'
   let(:workspace) { create(:workspace, project: my_project) }
   let(:workspace_uuid) { workspace.uuid }

@@ -20,7 +20,7 @@ class Statefiles::V1::StatefilesController < ActionController::Base
   end
 
   def authenticate_token
-    @workspace = Token.find_workspace_by_token(params[:workspace_uuid], bearer_token)
+    @workspace = TokenWorkspace.find_workspace_by_token(params[:workspace_uuid], bearer_token)
     if @workspace.nil?
       render json: { error: 'Unauthorized' }, status: 401
       return
@@ -28,6 +28,7 @@ class Statefiles::V1::StatefilesController < ActionController::Base
 
     @project = @workspace.project
     @organization = @project.organization
+    logger.debug Environment.count
     @environment = @project.environments.where("LOWER(name) = LOWER(?)", params[:environment]).first
   end
 
@@ -73,9 +74,12 @@ class Statefiles::V1::StatefilesController < ActionController::Base
   end
 
   def update
+    logger.debug "-----".red
+    logger.debug "#{@environment.to_json}".red
     @statefile = @workspace.statefiles.find_or_initialize_by(published_at: DateTime.now.utc, environment: @environment)
     @statefile.content = request.raw_post
     @statefile.save!
+    logger.debug "Save !!!!".red
     statefile = {}
     render json: nil, status: :ok
   end
