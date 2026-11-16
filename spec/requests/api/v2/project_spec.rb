@@ -270,16 +270,16 @@ end
 RSpec.describe 'api/v2/projects environments', type: :request do
   include_context 'organization_token'
 
-  let(:headers) { { 'Authorization' => Authorization, 'Content-Type' => 'application/json', 'Accept' => 'application/json' } }
+  let(:headers) { { 'Authorization' => self.Authorization, 'Content-Type' => 'application/json', 'Accept' => 'application/json' } }
   let!(:production) { create(:environment, organization: organization, name: 'production') }
   let!(:staging) { create(:environment, organization: organization, name: 'staging') }
 
   def create_project(body)
-    post "/organizations/#{organization.uuid}/projects", params: body.to_json, headers: headers
+    post "/api/v2/organizations/#{organization.uuid}/projects", params: body.to_json, headers: headers
   end
 
   def update_project(record, body)
-    patch "/projects/#{record.uuid}", params: body.to_json, headers: headers
+    patch "/api/v2/projects/#{record.uuid}", params: body.to_json, headers: headers
   end
 
   it 'attaches environments given by name on create, case-insensitively' do
@@ -345,7 +345,7 @@ RSpec.describe 'api/v2/projects environments', type: :request do
     record = create(:project, organization: organization, description: 'Web stack')
     record.environments << production
 
-    get "/projects/#{record.uuid}", headers: headers
+    get "/api/v2/projects/#{record.uuid}", headers: headers
 
     expect(response).to have_http_status(:ok)
     expect(JSON.parse(response.body)).to eq(
