@@ -46,6 +46,21 @@ RSpec.configure do |config|
             properties: {
               status: { type: :string, example: "updated" }
             }
+          },
+          Project: {
+            type: :object,
+            properties: {
+              uuid: { type: :string },
+              name: { type: :string },
+              description: { type: :string, nullable: true },
+              environment_names: { type: :array, items: { type: :string } },
+              environments: {
+                type: :array, items: { type: :string },
+                description: "Same as environment_names; kept for older clients"
+              },
+              status: { type: :string, example: "created", description: "Only on create" }
+            },
+            required: [ "uuid", "name", "environment_names" ]
           }
         }, 
         securitySchemes: {

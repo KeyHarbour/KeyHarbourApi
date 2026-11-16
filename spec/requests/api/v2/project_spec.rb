@@ -57,15 +57,7 @@ RSpec.describe 'api/v2/projects', type: :request, openapi_spec: 'api_v2/openapi.
       let(:uuid) { my_project.uuid } 
 
       response '200', 'Project found' do
-        schema type: :object,
-          properties: {
-            name: { type: :string },
-            environment_names: {
-              type: :array,
-              items: { type: :string }
-            }
-          },
-          required: [ 'name', 'environments' ]
+        schema '$ref' => '#/components/schemas/Project'
 
         run_test!
       end
@@ -181,8 +173,12 @@ RSpec.describe 'api/v2/projects', type: :request, openapi_spec: 'api_v2/openapi.
       response '201', 'Projects created' do
         let(:organization_uuid) { organization.uuid }
         let(:project) { {name: "New Workspace", description: "A new project for testing"} }
-        schema '$ref' => '#/components/schemas/Created'
-        run_test!
+        schema '$ref' => '#/components/schemas/Project'
+        run_test! do |response|
+          json = JSON.parse(response.body)
+          expect(json['status']).to eq('created')
+          expect(json['uuid']).to eq(organization.projects.find_by(name: 'New Workspace').uuid)
+        end
       end
 
       response '400', 'Bad Request' do
@@ -215,15 +211,7 @@ RSpec.describe 'api/v2/projects', type: :request, openapi_spec: 'api_v2/openapi.
       let(:uuid) { project.uuid } 
 
       response '200', 'Project found' do
-        schema type: :object,
-          properties: {
-            name: { type: :string },
-            environment_names: {
-              type: :array,
-              items: { type: :string }
-            }
-          },
-          required: [ 'name', 'environments' ]
+        schema '$ref' => '#/components/schemas/Project'
 
         run_test!
       end
@@ -274,5 +262,98 @@ RSpec.describe 'api/v2/projects', type: :request, openapi_spec: 'api_v2/openapi.
         run_test!
       end
     end    
+  end
+end
+
+# Environments are accepted by name, as documented, and project responses carry
+# the project's uuid and environments.
+RSpec.describe 'api/v2/projects environments', type: :request do
+  include_context 'organization_token'
+
+  let(:headers) { { 'Authorization' => Authorization, 'Content-Type' => 'application/json', 'Accept' => 'application/json' } }
+  let!(:production) { create(:environment, organization: organization, name: 'production') }
+  let!(:staging) { create(:environment, organization: organization, name: 'staging') }
+
+  def create_project(body)
+    post "/organizations/#{organization.uuid}/projects", params: body.to_json, headers: headers
+  end
+
+  def update_project(record, body)
+    patch "/projects/#{record.uuid}", params: body.to_json, headers: headers
+  end
+
+  it 'attaches environments given by name on create, case-insensitively' do
+    create_project(project: { name: 'web', environment_names: %w[Production staging] })
+
+    expect(response).to have_http_status(:created)
+    created = organization.projects.find_by(name: 'web')
+    expect(created.environment_names).to match_array(%w[production staging])
+    json = JSON.parse(response.body)
+    expect(json).to include('uuid' => created.uuid, 'name' => 'web', 'status' => 'created')
+    expect(json['environment_names']).to match_array(%w[production staging])
+  end
+
+  it 'rejects an unknown environment name instead of dropping it' do
+    expect {
+      create_project(project: { name: 'web', environment_names: %w[production prod] })
+    }.not_to change(Project, :count)
+
+    expect(response).to have_http_status(:unprocessable_entity)
+    json = JSON.parse(response.body)
+    expect(json['message']).to include('prod')
+    expect(json['available_environments']).to match_array(%w[production staging])
+  end
+
+  it 'accepts an unwrapped body with environment names' do
+    create_project(name: 'web', environment_names: %w[staging])
+
+    expect(response).to have_http_status(:created)
+    expect(organization.projects.find_by(name: 'web').environment_names).to eq(%w[staging])
+  end
+
+  it 'replaces the environment list on update' do
+    record = create(:project, organization: organization)
+    record.environments << production
+
+    update_project(record, project: { environment_names: %w[staging] })
+
+    expect(response).to have_http_status(:accepted)
+    expect(record.reload.environment_names).to eq(%w[staging])
+  end
+
+  it 'leaves environments alone when they are not sent' do
+    record = create(:project, organization: organization)
+    record.environments << production
+
+    update_project(record, project: { name: 'renamed' })
+
+    expect(response).to have_http_status(:accepted)
+    expect(record.reload).to have_attributes(name: 'renamed', environment_names: %w[production])
+  end
+
+  it 'rejects an unknown environment name on update' do
+    record = create(:project, organization: organization)
+    record.environments << production
+
+    update_project(record, project: { environment_names: %w[nope] })
+
+    expect(response).to have_http_status(:unprocessable_entity)
+    expect(record.reload.environment_names).to eq(%w[production])
+  end
+
+  it 'returns uuid, description and environments from show' do
+    record = create(:project, organization: organization, description: 'Web stack')
+    record.environments << production
+
+    get "/projects/#{record.uuid}", headers: headers
+
+    expect(response).to have_http_status(:ok)
+    expect(JSON.parse(response.body)).to eq(
+      'uuid' => record.uuid,
+      'name' => record.name,
+      'description' => 'Web stack',
+      'environment_names' => %w[production],
+      'environments' => %w[production]
+    )
   end
 end
