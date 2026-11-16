@@ -6,7 +6,7 @@ RSpec.describe 'Statefiles::V1::Statefiles', type: :request, openapi_spec: 'stat
   let(:environment) { create(:environment, organization: organization) }
   let(:workspace) { create(:workspace, project: project) }
   let(:token_workspace) { create(:token_workspace, scopable: workspace) }
-  let(:valid_token) { 'secret-terraform-token' }
+  let(:valid_token) { token_workspace.generate_token_for(:statefile) }
 
   let(:workspace_uuid) { workspace.uuid }
   let(:environment_name) { environment.name }
@@ -15,10 +15,6 @@ RSpec.describe 'Statefiles::V1::Statefiles', type: :request, openapi_spec: 'stat
 
   before do
     project.environments << environment
-    allow(TokenWorkspace).to receive(:find_workspace_by_token).and_return(nil)
-    allow(TokenWorkspace).to receive(:find_workspace_by_token)
-      .with(workspace.uuid, valid_token)
-      .and_return(workspace)
   end
 
   # Note : Si votre serveur dans swagger_helper.rb a déjà "/statefiles/v1" dans son URL,
@@ -225,5 +221,62 @@ RSpec.describe 'Statefiles::V1::Statefiles', type: :request, openapi_spec: 'stat
         end
       end
     end
+  end
+end
+
+# Which tokens may use the Terraform backend. These run the real token lookup:
+# a stubbed lookup would not catch a token class that cannot answer it.
+RSpec.describe 'Statefiles::V1 token scopes', type: :request do
+  let(:project) { create(:project) }
+  let(:organization) { project.organization }
+  let(:environment) { create(:environment, organization: organization) }
+  let(:workspace) { create(:workspace, project: project) }
+
+  before { project.environments << environment }
+
+  def get_state(token, workspace_uuid: workspace.uuid)
+    get "/statefiles/v1/#{workspace_uuid}/#{environment.name}",
+        headers: { 'Authorization' => "Bearer #{token.generate_token_for(:statefile)}" }
+  end
+
+  it 'accepts a workspace token for its workspace' do
+    get_state(create(:token_workspace, scopable: workspace))
+    expect(response).to have_http_status(:ok)
+  end
+
+  it 'rejects a workspace token for another workspace' do
+    get_state(create(:token_workspace, scopable: create(:workspace, project: project)))
+    expect(response).to have_http_status(:unauthorized)
+  end
+
+  it 'accepts a project token for a workspace of its project' do
+    get_state(create(:token_project, scopable: project))
+    expect(response).to have_http_status(:ok)
+  end
+
+  it 'rejects a project token for a workspace of another project' do
+    get_state(create(:token_project, scopable: create(:project, organization: organization)))
+    expect(response).to have_http_status(:unauthorized)
+  end
+
+  it 'accepts an organization token for a workspace of its organization' do
+    get_state(create(:token_organization, scopable: organization))
+    expect(response).to have_http_status(:ok)
+  end
+
+  it 'rejects an organization token from another organization' do
+    get_state(create(:token_organization, scopable: create(:organization)))
+    expect(response).to have_http_status(:unauthorized)
+  end
+
+  it 'rejects an account token with 401' do
+    get_state(create(:token_account, scopable: create(:account)))
+    expect(response).to have_http_status(:unauthorized)
+  end
+
+  it 'records the token used on the ApiQuery' do
+    token = create(:token_project, scopable: project)
+    get_state(token)
+    expect(ApiQuery.last.token).to eq(token.id)
   end
 end

@@ -1,4 +1,8 @@
 class Api::V2::ProjectsController < Api::V2::ApplicationController
+  # environment_names is not a column, so list the wrapped keys explicitly:
+  # an unwrapped JSON body keeps its environment names.
+  wrap_parameters :project, include: %i[name uuid description environment_ids environment_names], format: [ :json ]
+
   before_action :validate_project
   before_action :validate_org
   before_action :log_api_query
@@ -8,20 +12,26 @@ class Api::V2::ProjectsController < Api::V2::ApplicationController
   end
 
   def create
-    @organization.projects.new(item_params)
-    if @organization.save
-      render json: { status: "updated" }, status: :created
+    attributes = project_attributes
+    return if performed?
+
+    new_project = @organization.projects.new(attributes)
+    if new_project.save
+      render json: project_json(new_project).merge(status: "created"), status: :created
     else
       render json: { status: "unprocessable_entity" }, status: :unprocessable_entity
     end
   end
 
   def show
-    render json: { name: project.name, environments: project.environment_names }, status: :ok
+    render json: project_json(project), status: :ok
   end
 
   def update
-    if project.update(item_params)
+    attributes = project_attributes
+    return if performed?
+
+    if project.update(attributes)
       render json: { status: "updated" }, status: :accepted
     else
       render json: { status: "Cannot update" }, status: :unprocessable_entity
@@ -30,7 +40,41 @@ class Api::V2::ProjectsController < Api::V2::ApplicationController
 
   private
     def item_params
-      params.expect(project: [ :name, :uuid, :description, environment_ids: [] ])
+      params.expect(project: [ :name, :uuid, :description, environment_ids: [], environment_names: [] ])
+    end
+
+    # Accepts environments by name (as documented) as well as by id. Names are
+    # matched case-insensitively against the organization's environments; an
+    # unknown name is rejected instead of being silently dropped.
+    def project_attributes
+      attributes = item_params
+      names = attributes.delete(:environment_names)
+      return attributes if names.nil?
+
+      environments = @organization.environments.where("LOWER(name) IN (?)", names.map { |name| name.to_s.downcase })
+      unknown = names.reject { |name| environments.any? { |environment| environment.name.casecmp?(name.to_s) } }
+      if unknown.any?
+        render json: {
+          message: "Unknown environment(s): #{unknown.join(', ')}",
+          available_environments: @organization.environments.pluck(:name)
+        }, status: :unprocessable_entity
+        return
+      end
+
+      attributes.merge(environment_ids: environments.map(&:id))
+    end
+
+    # "environments" is kept alongside the documented "environment_names" for
+    # clients that read the old key.
+    def project_json(record)
+      names = record.environment_names
+      {
+        uuid: record.uuid,
+        name: record.name,
+        description: record.description,
+        environment_names: names,
+        environments: names
+      }
     end
 
     def validate_scopes
